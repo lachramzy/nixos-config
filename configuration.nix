@@ -59,27 +59,27 @@
     interactiveShellInit = ''
       set -g fish_greeting
       function nrs
-    cd /etc/nixos/personal-flake
+      cd /etc/nixos/personal-flake
 
-    echo "=== Updating flake inputs ==="
-    nix flake update
+      echo "=== Updating flake inputs ==="
+      nix flake update
 
-    echo "=== Rebuilding system ==="
-    if sudo nixos-rebuild switch --flake .#nixos-btw $argv
-        echo "=== Build successful, committing changes ==="
-        git add .
-        if not git diff --cached --quiet
-            git commit -m "auto: post-rebuild "(date '+%Y-%m-%d %H:%M:%S')
-            git push
-            echo "✅ Pushed to GitHub"
-        else
-            echo "No changes to commit"
-        end
-    else
-        echo "❌ Rebuild failed, not committing"
-        return 1
-    end
-end
+      echo "=== Rebuilding system ==="
+      if sudo nixos-rebuild switch --flake .#nixos-btw $argv
+          echo "=== Build successful, committing changes ==="
+          git add .
+          if not git diff --cached --quiet
+              git commit -m "auto: post-rebuild "(date '+%Y-%m-%d %H:%M:%S')
+              git push
+              echo "✅ Pushed to GitHub"
+          else
+              echo "No changes to commit"
+          end
+      else
+          echo "❌ Rebuild failed, not committing"
+          return 1
+      end
+  end
     '';
     loginShellInit = ''
       if test -z "$DISPLAY"; and test (tty) = "/dev/tty1"
