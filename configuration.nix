@@ -189,6 +189,7 @@
     librewolf
     lutris
     mpv
+    mov-cli
     nixpkgs-fmt
     nix-output-monitor
     obsidian
