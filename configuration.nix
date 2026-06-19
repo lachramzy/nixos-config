@@ -181,6 +181,7 @@
     gnome-themes-extra
     htop
     kdePackages.qtwayland
+    keepassxc
     kitty
     lact
     libnotify
