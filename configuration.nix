@@ -32,6 +32,7 @@
     enable = true;
   };
   services.nscd.enable = true;
+  services.resolved.enable = true;
 
   security = {
     apparmor.enable = true;
@@ -221,9 +222,10 @@
 
   programs.steam = {
     enable = true;
-    remotePlay.openFirewall = true; # Opens ports for Steam Remote Play
-    dedicatedServer.openFirewall = true; # Opens ports for Source Dedicated Server
-    extraCompatPackages = with pkgs; [ 
+    remotePlay.openFirewall = true;
+    dedicatedServer.openFirewall = true;
+    localNetworkGameTransfers.openFirewall = true;
+    extraCompatPackages = with pkgs; [
       proton-ge-bin
     ];
   };
