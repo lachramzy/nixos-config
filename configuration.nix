@@ -60,23 +60,26 @@
       set -g fish_greeting
       function nrs
       cd /etc/nixos/personal-flake
+      echo "=== Rebuilding system ==="    
 
-      echo "=== Updating flake inputs ==="
-      nix flake update
+      read --prompt "Update flake inputs? (y/N) " confirm
+      if test "$confirm" = y -o "$confirm" = Y
+        echo "=== Updating flake inputs ==="
+        nix flake update
+      end
 
-      echo "=== Rebuilding system ==="
       if sudo nixos-rebuild switch --flake .#nixos-btw $argv
           echo "=== Build successful, committing changes ==="
           git add .
           if not git diff --cached --quiet
               git commit -m "auto: post-rebuild "(date '+%Y-%m-%d %H:%M:%S')
               git push
-              echo "✅ Pushed to GitHub"
+              echo "Pushed to GitHub"
           else
               echo "No changes to commit"
           end
       else
-          echo "❌ Rebuild failed, not committing"
+          echo "Rebuild failed, not committing"
           return 1
       end
   end
@@ -86,6 +89,21 @@
           exec start-hyprland
       end
     '';
+  };
+
+  nix = {
+    settings = {
+      substituters = [
+        "https://cache.nixos.org"
+        "https://nix-community.cachix.org"
+      ];
+      trusted-public-keys = [
+        "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
+        "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+      ];
+      cores = 8;
+      max-jobs = 4;
+    };
   };
 
   users.users.lachlan = {
@@ -109,19 +127,6 @@
   services.hardware.openrgb = {
     enable = true;
     package = pkgs.openrgb-with-all-plugins;
-  };
-
-  # GEOCLUE
-  services.geoclue2 = {
-    enable = true;
-    enableWifi = true;
-    enable3G = false;
-  };
-
-  services.geoclue2.appConfig.gammastep = {
-    isAllowed = true;
-    isSystem = false;
-    users = [ "lachlan" ];
   };
 
   xdg.portal = {
@@ -165,7 +170,6 @@
     celluloid
     cmatrix
     croc
-    cowsay
     curl
     davinci-resolve-studio
     ddcutil
@@ -174,17 +178,14 @@
     ethtool
     fastfetch
     gammastep
-    geoclue2
     gimp
     git
     git-crypt
     gnome-themes-extra
-    htop
     kdePackages.qtwayland
     keepassxc
     kitty
     lact
-    libnotify
     libreoffice
     librewolf
     lutris
@@ -199,7 +200,6 @@
     protonup-qt
     pulsemixer
     ripgrep
-    sl
     spotify
     swayimg
     s-tui
@@ -244,34 +244,6 @@
   programs.firefox = {
     enable = true;
     package = pkgs.librewolf;
-
-    policies = {
-      HardwareAcceleration = true;
-    };
-
-    preferences = {
-      "layers.acceleration.force-enabled" = true;
-      "gfx.webrender.all" = true;
-      "dom.ipc.processCount" = 4;
-      "browser.cache.disk.enable" = true;
-      "browser.cache.disk.capacity" = 512000;
-      "browser.cache.memory.capacity" = 81920;
-      "network.http.pipelining" = true;
-      "network.http.pipelining.maxrequests" = 32;
-      "network.http.max-connections" = 512;
-      "network.http.max-persistent-connections-per-server" = 6;
-      "image.mem.max_decoded_image_kb" = 256000;
-      "browser.sessionhistory.max_total_viewers" = 3;
-      "general.smoothScrolling" = true;
-      "mousewheel.min_line_scroll_amount" = 60;
-      "toolkit.scrollbox.smoothScroll" = true;
-      "layout.frame_rate" = 60;
-      "network.dns.disableIPv6" = true;
-      "privacy.resistFingerprinting" = false;
-      "ui.systemUsesDarkTheme" = 1;
-      "layout.css.prefers-color-scheme.content-override" = 0;
-      "browser.theme.toolbar-theme" = 0;
-    };
   };
 
   environment.sessionVariables = {
