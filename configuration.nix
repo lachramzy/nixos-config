@@ -31,6 +31,7 @@
   networking.firewall = {
     enable = true;
   };
+  services.nscd.enable = true;
 
   security = {
     apparmor.enable = true;
