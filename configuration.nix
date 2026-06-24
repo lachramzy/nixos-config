@@ -55,35 +55,41 @@
   boot.kernelModules = [ "i2c-dev" ];
 
   programs.fish = {
-    enable = true;
-    interactiveShellInit = ''
-      set -g fish_greeting
-      function nrs
-      cd /etc/nixos/personal-flake
-      echo "=== Rebuilding system ==="    
+  enable = true;
+  interactiveShellInit = ''
+    set -g fish_greeting
 
-      read --prompt "Update flake inputs? (y/N) " confirm
+    function nrs
+      cd /etc/nixos/personal-flake
+
+      echo "=== Rebuilding system ==="
+
+      # Ask whether to update flake inputs
+      read --prompt-str "Update flake inputs? (y/N) " confirm
       if test "$confirm" = y -o "$confirm" = Y
         echo "=== Updating flake inputs ==="
         nix flake update
       end
 
-      if sudo nixos-rebuild switch --flake .#nixos-btw $argv
-          echo "=== Build successful, committing changes ==="
-          git add .
-          if not git diff --cached --quiet
-              git commit -m "auto: post-rebuild "(date '+%Y-%m-%d %H:%M:%S')
-              git push
-              echo "Pushed to GitHub"
-          else
-              echo "No changes to commit"
-          end
+      echo "=== Running nixos-rebuild ==="
+
+      if sudo nixos-rebuild switch --flake .#nixos-btw --cores 12 --max-jobs 4 $argv
+        echo "=== Build successful, committing changes ==="
+        git add .
+        if not git diff --cached --quiet
+          git commit -m "auto: post-rebuild "(date '+%Y-%m-%d %H:%M:%S')
+          git push
+          echo "✅ Pushed to GitHub"
+        else
+          echo "No changes to commit"
+        end
       else
-          echo "Rebuild failed, not committing"
-          return 1
+        echo "❌ Rebuild failed, not committing"
+        return 1
       end
-  end
-    '';
+    end
+  '';
+  # loginShellInit remains the same
     loginShellInit = ''
       if test -z "$DISPLAY"; and test (tty) = "/dev/tty1"
           exec start-hyprland
