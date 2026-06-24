@@ -116,7 +116,8 @@
   bind = $mainMod SHIFT, O, exec, libreoffice
   bind = $mainMod, G, exec, gimp
   bind = $mainMod SHIFT, D, exec, QT_QPA_PLATFORM=xcb davinci-resolve-studio
-  bind = $mainMod, L, exec, lact
+  bind = $mainMod SHIFT, L, exec, lact
+  bind = $mainMod, L, exec, lutris
   bind = $mainMod, A, exec, kitty --class floating_mixer -e pulsemixer
   bind = $mainMod SHIFT, E, exec, easyeffects
   bind = $mainMod, O, exec, obsidian
