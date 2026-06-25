@@ -122,6 +122,10 @@
   shell = pkgs.fish;
   };
 
+  services.udev.extraRules = ''
+    KERNEL=="hidraw*", SUBSYSTEM=="hidraw", MODE="0666", TAG+="uaccess"
+  '';
+
   # SOUND
   services.pipewire = {
     enable = true;
