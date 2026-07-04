@@ -219,6 +219,7 @@
     unzip
     vis
     wget
+    wine
     wl-clipboard
     zip
   ];
