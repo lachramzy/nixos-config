@@ -204,6 +204,7 @@
     mov-cli
     nixpkgs-fmt
     nix-output-monitor
+    nsnake
     obsidian
     openrgb
     osu-lazer-bin
@@ -221,6 +222,7 @@
     wget
     wine
     wl-clipboard
+    yetris
     zip
   ];
 
