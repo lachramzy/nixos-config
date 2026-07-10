@@ -7,11 +7,6 @@
   programs.git.enable = true;
   programs.git.settings.user.name = "lachlan";
   programs.git.settings.user.email = "lacjamram@gmail.com";
-
-  programs.bash.enable = true;
-  programs.bash.shellAliases = {
-    btw = ''echo "i use nixos, by the way"'';
-  };
   
   home.sessionPath = [
     "${config.home.homeDirectory}/.local/bin"

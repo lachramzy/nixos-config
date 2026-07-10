@@ -223,6 +223,7 @@
     wine
     wl-clipboard
     yetris
+    yt-dlp
     zip
   ];
 
