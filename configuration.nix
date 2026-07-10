@@ -165,6 +165,7 @@
 
   environment.systemPackages = with pkgs; [
     adwaita-icon-theme
+    alsa-plugins
     alsa-utils
     ani-cli
     btop
