@@ -16,7 +16,7 @@
   home.file.".config/hypr/hyprland.conf" = {
     text = ''
   # MONITOR
-  monitor=DP-1,3840x2160@330,0x0,2,cm,srgb,bitdepth,10,vrr,2
+  monitor=DP-1,3840x2160@165,0x0,2,cm,srgb,bitdepth,10,vrr,2
 
   # ENVIRONMENT VARIABLES
   env = XCURSOR_SIZE,32
@@ -117,7 +117,7 @@
   bind = $mainMod SHIFT, E, exec, easyeffects
   bind = $mainMod, O, exec, obsidian
   bind = $mainMod CTRL, O, exec, osu!
-  bind = $mainMod SHIFT, P, exec, prismlauncher
+  bind = $mainMod, P, exec, prismlauncher
   bind = $mainMod, S, exec, steam
 
   bind = $mainMod, left, movefocus, l
@@ -153,8 +153,8 @@
   bindm = $mainMod, mouse:272, movewindow
   bindm = $mainMod, mouse:273, resizewindow
 
-  bindel = $mainMod, Page_Up, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+
-  bindel = $mainMod, Page_Down, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+  bindel = $mainMod, Page_Up, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 1%+
+  bindel = $mainMod, Page_Down, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-
   bindel = ,XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
   bindel = ,XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
   bindel = $mainMod SHIFT, Page_Up, exec, ddcutil -b 10 setvcp 10 + 20
@@ -167,11 +167,13 @@
   xwayland {
       force_zero_scaling = true
   }
+  render {
+    direct_scanout = true
+  }
   '';
     force = true;
   };
 
-  # THEME RICE
   dconf.enable = true;
   dconf.settings = {
     "org/gnome/desktop/interface" = {
@@ -208,7 +210,6 @@
 
   qt = {
     enable = true;
-    # platformTheme.name = "Adwaita";
     style.name = "adwaita-dark";
     style.package = pkgs.adwaita-qt;
   };

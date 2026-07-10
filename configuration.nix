@@ -135,16 +135,8 @@
     jack.enable = true;
   };
 
-  services.hardware.openrgb = {
-    enable = true;
-    package = pkgs.openrgb-with-all-plugins;
-  };
-
   xdg.portal = {
     enable = true;
-    extraPortals = with pkgs; [
-      xdg-desktop-portal-wlr
-    ];
   };
  
   nixpkgs.config.allowUnfree = true;
@@ -177,7 +169,6 @@
     ani-cli
     btop
     cava
-    cbonsai
     celluloid
     cmatrix
     croc
@@ -204,7 +195,6 @@
     mov-cli
     nixpkgs-fmt
     nix-output-monitor
-    nsnake
     obsidian
     openrgb
     osu-lazer-bin
@@ -222,7 +212,6 @@
     wget
     wine
     wl-clipboard
-    yetris
     yt-dlp
     zip
   ];
