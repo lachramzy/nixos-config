@@ -153,8 +153,8 @@
   bindm = $mainMod, mouse:272, movewindow
   bindm = $mainMod, mouse:273, resizewindow
 
-  bindel = $mainMod, Page_Up, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 1%+
-  bindel = $mainMod, Page_Down, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-
+  bindel = $mainMod, Page_Up, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 2%+
+  bindel = $mainMod, Page_Down, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%-
   bindel = ,XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
   bindel = ,XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
   bindel = $mainMod SHIFT, Page_Up, exec, ddcutil -b 10 setvcp 10 + 20
