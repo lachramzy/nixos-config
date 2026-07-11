@@ -208,6 +208,7 @@
     s-tui
     thunar
     tty-clock
+    unrar
     unzip
     vis
     wget
