@@ -213,6 +213,7 @@
     vis
     wget
     wine
+    winetricks
     wl-clipboard
     yt-dlp
     zip
