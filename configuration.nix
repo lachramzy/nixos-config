@@ -133,6 +133,18 @@
     alsa.support32Bit = true;
     pulse.enable = true;
     jack.enable = true;
+    
+    extraConfig = {
+      pipewire = {
+        "context.properties" = {
+          "default.clock.rate"          = 96000; # 96kHz for high-res
+          "default.clock.allowed-rates" = [ 44100 48000 88200 96000 ];
+          "default.clock.quantum"       = 1024;
+          "default.clock.min-quantum"   = 32;
+          "default.clock.max-quantum"   = 2048;
+        };
+      };
+    };
   };
 
   xdg.portal = {
