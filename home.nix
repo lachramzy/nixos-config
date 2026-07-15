@@ -19,8 +19,8 @@
   monitor=DP-1,3840x2160@165,0x0,2,bitdepth,10,vrr,2
 
   # ENVIRONMENT VARIABLES
-  env = XCURSOR_SIZE,32
-  env = HYPRCURSOR_SIZE,32
+  env = XCURSOR_SIZE,48
+  env = HYPRCURSOR_SIZE,48
 
   # LOOK AND FEEL
   general {
@@ -178,7 +178,7 @@
       gtk-theme = "Adwaita-dark";
       icon-theme = "Adwaita";
       cursor-theme = "Adwaita";
-      cursor-size = 32;
+      cursor-size = 48;
     };
   };
 
@@ -195,7 +195,7 @@
     cursorTheme = {
       name = "Adwaita";
       package = pkgs.adwaita-icon-theme;
-      size = 32;
+      size = 48;
     };
     gtk3.extraConfig = {
       gtk-application-prefer-dark-theme = 1;
@@ -216,7 +216,7 @@
     x11.enable = true;
     name = "Adwaita";
     package = pkgs.adwaita-icon-theme;
-    size = 32;
+    size = 48;
   };
 
   home.sessionVariables = {
