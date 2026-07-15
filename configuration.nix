@@ -214,6 +214,7 @@
     prismlauncher
     protonup-qt
     pulsemixer
+    p7zip
     ripgrep
     spotify
     swayimg
