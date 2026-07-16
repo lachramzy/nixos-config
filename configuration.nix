@@ -226,7 +226,6 @@
     unzip
     vis
     wget
-    wine
     winetricks
     wineWow64Packages.stable
     wl-clipboard
