@@ -119,6 +119,7 @@
   bind = $mainMod CTRL, O, exec, osu!
   bind = $mainMod, P, exec, prismlauncher
   bind = $mainMod, S, exec, steam
+  bind = $mainMod, PRINT, exec, hyprshot -m window
 
   bind = $mainMod, left, movefocus, l
   bind = $mainMod, right, movefocus, r
