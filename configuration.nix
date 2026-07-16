@@ -228,6 +228,7 @@
     wget
     wine
     winetricks
+    wineWow64Packages.stable
     wl-clipboard
     yt-dlp
     zip
