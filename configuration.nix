@@ -239,9 +239,6 @@
     ];
   };
 
-  environment.etc."xdg/menus/applications.menu".source = 
-    "${pkgs.kdePackages.plasma-workspace}/etc/xdg/menus/plasma-applications.menu";
-
 # AMD GPU CONFIG
   hardware.graphics = {
     enable = true;
