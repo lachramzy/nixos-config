@@ -1,10 +1,6 @@
 { config, lib, pkgs, ... }:
 
 {
-  environment.variables = {
-    RUSTICL_ENABLE = "radeonsi";
-  };
-
   imports = [ ./hardware-configuration.nix ];
 
   boot.loader.systemd-boot.enable = true;
@@ -137,7 +133,7 @@
     extraConfig = {
       pipewire = {
         "context.properties" = {
-          "default.clock.rate"          = 96000; # 96kHz for high-res
+          "default.clock.rate"          = 96000;
           "default.clock.allowed-rates" = [ 44100 48000 88200 96000 ];
           "default.clock.quantum"       = 1024;
           "default.clock.min-quantum"   = 32;
@@ -251,6 +247,10 @@
     enable = true;
     enable32Bit = true;
   };
+
+  environment.variables = {
+    RUSTICL_ENABLE = "radeonsi";
+  }; 
 
   hardware.graphics.extraPackages = with pkgs; [
     mesa.opencl
