@@ -57,35 +57,42 @@
     set -g fish_greeting
 
     function nrs
-      cd /etc/nixos/personal-flake
+      set -l old_pwd $PWD
+        cd /etc/nixos/personal-flake
 
-      echo "=== Rebuilding system ==="
+        echo "=== Rebuilding system ==="
 
-      # Ask whether to update flake inputs
-      read --prompt-str "Update flake inputs? (y/N) " confirm
-      if test "$confirm" = y -o "$confirm" = Y
-        echo "=== Updating flake inputs ==="
-        nix flake update
-      end
-
-      echo "=== Running nixos-rebuild ==="
-
-      if sudo nixos-rebuild switch --flake .#nixos-btw --cores 12 --max-jobs 4 $argv
-        echo "=== Build successful, committing changes ==="
-        git add .
-        if not git diff --cached --quiet
-          git commit -m "auto: post-rebuild "(date '+%Y-%m-%d %H:%M:%S')
-          git push
-          echo "✅ Pushed to GitHub"
-        else
-          echo "No changes to commit"
+        # Ask whether to update flake inputs
+        read --prompt-str "Update flake inputs? (y/N) " confirm
+        if test "$confirm" = y; or test "$confirm" = Y
+          echo "=== Updating flake inputs ==="
+          nix flake update
         end
-      else
-        echo "❌ Rebuild failed, not committing"
-        return 1
+
+        echo "=== Running nixos-rebuild ==="
+
+        if sudo nixos-rebuild switch --flake .#nixos-btw --cores 12 --max-jobs 4 $argv
+          echo "=== Build successful, committing changes ==="
+          git add .
+          if not git diff --cached --quiet
+            git commit -m "auto: post-rebuild "(date '+%Y-%m-%d %H:%M:%S')
+            git push
+            echo "✅ Pushed to GitHub"
+          else
+            echo "No changes to commit"
+          end
+          
+          # Go back and exit cleanly
+          cd $old_pwd
+          return 0
+        else
+          echo "❌ Rebuild failed, not committing"
+          
+          # Go back and pass the error code
+          cd $old_pwd
+          return 1
+        end
       end
-      cd /home/lachlan
-    end
   '';
   # loginShellInit remains the same
     loginShellInit = ''
