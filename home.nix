@@ -78,8 +78,8 @@
   # INPUT
   input {
       kb_layout = us
-      repeat_delay = 140
-      repeat_rate = 100
+      repeat_delay = 133
+      repeat_rate = 165
 
       follow_mouse = 1
       sensitivity = 0
