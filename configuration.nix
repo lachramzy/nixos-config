@@ -194,6 +194,7 @@
     git-crypt
     gnome-themes-extra
     hyprshot
+    kdePackages.filelight
     kdePackages.qtwayland
     keepassxc
     kitty
