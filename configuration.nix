@@ -12,7 +12,7 @@
       preLVM = true;
     };
 
-    fileSystems."/mnt/hdd" = {
+    fileSystems."/hdd" = {
       device = "/dev/disk/by-uuid/cb0134fc-6dd5-4efc-8114-b683b27b5e6f";
       fsType = "ext4";
       options = [ 
@@ -207,6 +207,7 @@
     nix-output-monitor
     obsidian
     openrgb
+    osu-lazer-bin
     protonup-qt
     pulsemixer
     p7zip
