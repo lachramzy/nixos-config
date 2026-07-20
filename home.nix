@@ -117,7 +117,7 @@
   bind = $mainMod SHIFT, E, exec, easyeffects
   bind = $mainMod, O, exec, obsidian
   bind = $mainMod CTRL, O, exec, osu!
-  bind = $mainMod, P, exec, prismlauncher
+  bind = $mainMod, P, exec, keepassxc
   bind = $mainMod, S, exec, steam
   bind = $mainMod, INSERT, exec, hyprshot -m window
 
