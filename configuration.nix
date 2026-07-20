@@ -84,7 +84,7 @@
         echo "❌ Rebuild failed, not committing"
         return 1
       end
-      cd
+      cd /home/lachlan
     end
   '';
   # loginShellInit remains the same
