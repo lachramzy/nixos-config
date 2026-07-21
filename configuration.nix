@@ -236,6 +236,16 @@
     zip
   ];
 
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true;
+    dedicatedServer.openFirewall = true;
+    
+    extraCompatPackages = with pkgs; [
+      proton-ge-bin
+    ];
+  };
+
 # AMD GPU CONFIG
   hardware.graphics = {
     enable = true;
