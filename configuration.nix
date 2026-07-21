@@ -196,6 +196,7 @@
     easyeffects
     ethtool
     fastfetch
+    gamescope
     gammastep
     gimp
     git
