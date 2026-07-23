@@ -119,7 +119,7 @@
 
   users.users.lachlan = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "video" "networkmanager" "i2c-dev" ];
+    extraGroups = [ "wheel" "video" "networkmanager" "i2c-dev" "plugdev" ];
     packages = with pkgs; [
       tree
     ];
@@ -218,6 +218,7 @@
     obsidian
     openrgb
     osu-lazer-bin
+    polychromatic
     prismlauncher
     protonup-qt
     pulsemixer
