@@ -217,6 +217,7 @@
     obsidian
     openrgb
     osu-lazer-bin
+    prismlauncher
     protonup-qt
     pulsemixer
     p7zip
