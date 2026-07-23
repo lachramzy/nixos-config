@@ -210,6 +210,7 @@
     lact
     libreoffice
     librewolf
+    linuxPackages.openrazer
     mpv
     mov-cli
     nixpkgs-fmt
