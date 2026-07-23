@@ -16,7 +16,7 @@
   home.file.".config/hypr/hyprland.conf" = {
     text = ''
   # MONITOR
-  monitor=DP-1,preferred,0x0,1,bitdepth,10,vrr,2
+  monitor=DP-1,preferred,0x022,bitdepth,10,vrr,2
 
   # ENVIRONMENT VARIABLES
   env = XCURSOR_SIZE,32
@@ -82,7 +82,7 @@
       repeat_rate = 100
 
       follow_mouse = 1
-      sensitivity = -0.8977
+      sensitivity = -0.89769
       accel_profile = flat
   }
 
