@@ -16,7 +16,7 @@
   home.file.".config/hypr/hyprland.conf" = {
     text = ''
   # MONITOR
-  monitor=DP-1,preferred,0x0,2,bitdepth,10,vrr,2
+  monitor=DP-1,preferred,0x0,1,bitdepth,10,vrr,2
 
   # ENVIRONMENT VARIABLES
   env = XCURSOR_SIZE,32
