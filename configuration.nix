@@ -210,7 +210,6 @@
     lact
     libreoffice
     librewolf
-    linuxPackages.openrazer
     mpv
     mov-cli
     nixpkgs-fmt
@@ -248,6 +247,11 @@
     extraCompatPackages = with pkgs; [
       proton-ge-bin
     ];
+  };
+
+  hardware.openrazer = {
+    enable = true;
+    users = [ "lachlan" ];
   };
 
 # AMD GPU CONFIG
