@@ -160,6 +160,7 @@
   # FONTS & PACKAGES
   fonts = {
     packages = with pkgs; [
+      noto-fonts
       nerd-fonts.fira-code
       nerd-fonts.jetbrains-mono
       nerd-fonts.iosevka
@@ -258,15 +259,14 @@
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
+    extraPackages = with pkgs; [
+      rocmPackages.clr.icd
+    ];
   };
 
   environment.variables = {
     RUSTICL_ENABLE = "radeonsi";
-  }; 
-
-  hardware.graphics.extraPackages = with pkgs; [
-    mesa.opencl
-  ];
+  };
 
   services.lact = {
     enable = true;
