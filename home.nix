@@ -121,6 +121,7 @@
   bind = $mainMod, S, exec, steam
   bind = $mainMod SHIFT, P, exec, prismlauncher
   bind = $mainMod, INSERT, exec, hyprshot -m window
+  bind = SUPER SHIFT, X, exec, hyprctl kill
 
   bind = $mainMod, left, movefocus, l
   bind = $mainMod, right, movefocus, r
