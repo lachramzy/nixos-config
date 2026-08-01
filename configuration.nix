@@ -49,7 +49,7 @@
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   hardware.i2c.enable = true;
-  boot.kernelModules = [ "i2c-dev" ];
+  boot.kernelModules = [ "i2c-dev" "uinput" ];
 
   programs.fish = {
   enable = true;
@@ -254,6 +254,12 @@
     enable = true;
     users = [ "lachlan" ];
   };
+
+  # Enable the OpenTabletDriver daemon and GUI
+  hardware.opentabletdriver.enable = true;
+
+  # Required by OpenTabletDriver to create virtual input devices
+  hardware.uinput.enable = true;
 
 # AMD GPU CONFIG
   hardware.graphics = {
