@@ -218,9 +218,7 @@
     nix-output-monitor
     obsidian
     openrgb
-    osu-lazer-bin
     polychromatic
-    prismlauncher
     protonup-qt
     pulsemixer
     p7zip
@@ -240,16 +238,6 @@
     yt-dlp
     zip
   ];
-
-  programs.steam = {
-    enable = true;
-    remotePlay.openFirewall = true;
-    dedicatedServer.openFirewall = true;
-    
-    extraCompatPackages = with pkgs; [
-      proton-ge-bin
-    ];
-  };
 
   hardware.openrazer = {
     enable = true;
