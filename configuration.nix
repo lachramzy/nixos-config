@@ -197,6 +197,7 @@
     easyeffects
     ethtool
     fastfetch
+    ffmpeg-full
     gamescope
     gammastep
     gimp
