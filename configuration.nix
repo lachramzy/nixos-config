@@ -219,6 +219,7 @@
     obsidian
     openrgb
     polychromatic
+    prismlauncher
     protonup-qt
     pulsemixer
     p7zip
@@ -230,7 +231,7 @@
     tty-clock
     unrar
     unzip
-    vis
+    vim
     wget
     winetricks
     wineWow64Packages.stable
