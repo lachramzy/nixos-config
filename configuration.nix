@@ -218,6 +218,7 @@
     nix-output-monitor
     obsidian
     openrgb
+    osu-lazer-bin
     polychromatic
     prismlauncher
     protonup-qt
