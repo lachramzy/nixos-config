@@ -217,6 +217,7 @@
     nixpkgs-fmt
     nix-output-monitor
     obsidian
+    obs-studio
     openrgb
     osu-lazer-bin
     polychromatic
