@@ -228,6 +228,7 @@
     spotify
     swayimg
     s-tui
+    termdown
     thunar
     tty-clock
     unrar
