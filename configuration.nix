@@ -1,47 +1,65 @@
 { config, lib, pkgs, ... }:
 
 {
-  imports = [ ./hardware-configuration.nix ];
+############
+# > BOOT < #
+############
 
+  imports = [ ./hardware-configuration.nix ];
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelPackages = pkgs.linuxPackages_zen;
 
-    boot.initrd.luks.devices."cryptdata" = {
-      device = "/dev/disk/by-uuid/a94af95f-5062-4c1a-aa2e-612645c19f38";
-      preLVM = true;
-    };
+  boot.initrd.luks.devices."cryptdata" = {
+    device = "/dev/disk/by-uuid/a94af95f-5062-4c1a-aa2e-612645c19f38";
+    preLVM = true;
+  };
 
-    fileSystems."/hdd" = {
-      device = "/dev/disk/by-uuid/cb0134fc-6dd5-4efc-8114-b683b27b5e6f";
-      fsType = "ext4";
-      options = [ 
-        "users" 
-        "nofail"
-      ];
-    };
+  fileSystems."/hdd" = {
+    device = "/dev/disk/by-uuid/cb0134fc-6dd5-4efc-8114-b683b27b5e6f";
+    fsType = "ext4";
+    options = [ 
+      "users" 
+      "nofail"
+    ];
+  };
+
+  boot.blacklistedKernelModules = [
+    "ipv6"
+    "firewire-core"
+    "tb_net"
+    "floppy"
+    "cdrom"
+  ];
+
+  boot.kernelParams = [ "amd_pstate=active" ];
+  powerManagement.cpuFreqGovernor = "performance";
+
+
+
+##############
+# > SYSTEM < #
+##############
 
   networking.hostName = "nixos-btw";
-  networking.networkmanager.enable = true;
   networking.nameservers = [ "1.1.1.1" "1.0.0.1" "8.8.8.8" ];
   networking.firewall = {
     enable = true;
   };
+
   services.resolved.enable = true;
+  systemd.coredump.enable = false;
+  time.timeZone = "Australia/Melbourne";
 
   security = {
     apparmor.enable = true;
-
     protectKernelImage = true;
-
     sudo.extraConfig = ''
       Defaults lecture="never"
     '';
+    sudo.execWheelOnly = true;
+    forcePageTableIsolation = true;
   };
-
-  systemd.coredump.enable = false;
-
-  time.timeZone = "Australia/Melbourne";
 
   i18n.defaultLocale = "en_AU.UTF-8";
 
@@ -94,7 +112,6 @@
         end
       end
   '';
-  # loginShellInit remains the same
     loginShellInit = ''
       if test -z "$DISPLAY"; and test (tty) = "/dev/tty1"
           exec start-hyprland
@@ -130,14 +147,38 @@
     KERNEL=="hidraw*", SUBSYSTEM=="hidraw", MODE="0666", TAG+="uaccess"
   '';
 
-  # SOUND
+  hardware.bluetooth.enable = false;
+  services.printing.enable = false;
+  networking.wireless.enable = false;
+  documentation.enable = false;
+  documentation.man.enable = false;
+  documentation.doc.enable = false;
+  documentation.info.enable = false;
+
+  xdg.portal = {
+    enable = true;
+  };
+
+  environment.sessionVariables = {
+    AMD_VULKAN_ICD = "RADV";
+    RADV_PERFSET = "aco";
+    MOZ_ENABLE_WAYLAND = "1";
+  };
+
+  services.fstrim.enable = true;
+
+
+
+#############
+# > SOUND < #
+#############
+
   services.pipewire = {
     enable = true;
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
     jack.enable = true;
-    
     extraConfig = {
       pipewire = {
         "context.properties" = {
@@ -151,13 +192,13 @@
     };
   };
 
-  xdg.portal = {
-    enable = true;
-  };
- 
-  nixpkgs.config.allowUnfree = true;
 
-  # FONTS & PACKAGES
+
+################ 
+# > PACKAGES < #
+################
+
+  nixpkgs.config.allowUnfree = true;
   fonts = {
     packages = with pkgs; [
       noto-fonts
@@ -168,9 +209,7 @@
       noto-fonts-cjk-sans
       noto-fonts-cjk-serif
     ];
-
     enableDefaultPackages = true;
-
     fontconfig = {
       defaultFonts = {
         monospace = [ "JetBrainsMono Nerd Font" ];
@@ -243,18 +282,30 @@
     zip
   ];
 
+  programs.firefox = {
+    enable = true;
+    package = pkgs.librewolf;
+  };
+
+
+
+###############
+# > DRIVERS < #
+###############
+
   hardware.openrazer = {
     enable = true;
     users = [ "lachlan" ];
   };
-
-  # Enable the OpenTabletDriver daemon and GUI
   hardware.opentabletdriver.enable = true;
-
-  # Required by OpenTabletDriver to create virtual input devices
   hardware.uinput.enable = true;
 
-# AMD GPU CONFIG
+
+
+###############
+# > AMD GPU < #
+###############
+
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
@@ -273,18 +324,12 @@
 
   hardware.amdgpu.overdrive.enable = true;
 
-# LIBREWOLF SETTINGS
-  programs.firefox = {
-    enable = true;
-    package = pkgs.librewolf;
-  };
 
-  environment.sessionVariables = {
-    MOZ_ENABLE_WAYLAND = "1";
-  };
 
-# NIX SETTINGS
+####################
+# > NIX SETTINGS < #
+####################
+
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
   system.stateVersion = "26.05";
 }
