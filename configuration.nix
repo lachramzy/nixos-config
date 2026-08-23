@@ -99,7 +99,7 @@
 
         echo "=== Running nixos-rebuild ==="
 
-        if sudo nixos-rebuild switch --flake .#nixos-btw --cores 12 --max-jobs 4 $argv
+        if sudo nixos-rebuild switch --flake .#nixos-btw --cores 16 --max-jobs 2 $argv
           echo "=== Build successful, committing changes ==="
           git add .
           if not git diff --cached --quiet
@@ -139,8 +139,8 @@
         "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
         "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
       ];
-      cores = 8;
-      max-jobs = 16;
+      cores = 16;
+      max-jobs = 2;
       http-connections = 128;
       max-substitution-jobs = 128;
     };
@@ -321,6 +321,15 @@
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
+
+    package = pkgs.mesa.override {
+      stdenv = pkgs.stdenvAdapters.impureUseNativeOptimizations pkgs.stdenv;
+    };
+
+    package32 = pkgs.pkgsi686Linux.mesa.override {
+      stdenv = pkgs.pkgsi686Linux.stdenvAdapters.impureUseNativeOptimizations pkgs.pkgsi686Linux.stdenv;
+    };
+
     extraPackages = with pkgs; [
       rocmPackages.clr.icd
     ];
