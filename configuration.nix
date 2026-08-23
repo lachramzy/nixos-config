@@ -34,6 +34,7 @@
 
   boot.kernelParams = [ "amd_pstate=active" ];
   powerManagement.cpuFreqGovernor = "performance";
+  boot.tmp.useTmpfs = true;
 
 
 
@@ -45,6 +46,15 @@
   networking.nameservers = [ "1.1.1.1" "1.0.0.1" "8.8.8.8" ];
   networking.firewall = {
     enable = true;
+  };
+
+  boot.kernel.sysctl = {
+    "net.core.default_qdisc" = "fq";
+    "net.ipv4.tcp_congestion_control" = "bbr";
+    "net.core.rmem_max" = 16777216;
+    "net.core.wmem_max" = 16777216;
+    "net.ipv4.tcp_rmem" = "4096 87380 16777216";
+    "net.ipv4.tcp_wmem" = "4096 65536 16777216";
   };
 
   services.resolved.enable = true;
@@ -130,7 +140,9 @@
         "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
       ];
       cores = 8;
-      max-jobs = 4;
+      max-jobs = 16;
+      http-connections = 128;
+      max-substitution-jobs = 128;
     };
   };
 
