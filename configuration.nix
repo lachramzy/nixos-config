@@ -263,6 +263,7 @@
     lact
     libreoffice
     librewolf
+    lutris
     mpv
     mov-cli
     nixpkgs-fmt
