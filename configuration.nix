@@ -274,6 +274,7 @@
     polychromatic
     prismlauncher
     protonup-qt
+    protontricks
     pulsemixer
     p7zip
     ripgrep
