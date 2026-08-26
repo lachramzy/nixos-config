@@ -276,6 +276,7 @@
     prismlauncher
     protonup-qt
     protontricks
+    proton-vpn-cli
     pulsemixer
     p7zip
     ripgrep
