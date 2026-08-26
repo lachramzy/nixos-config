@@ -47,6 +47,8 @@
   networking.firewall = {
     enable = true;
   };
+  networking.networkmanager.enable = true;
+  networking.firewall.checkReversePath = false;
 
   boot.kernel.sysctl = {
     "net.core.default_qdisc" = "fq";
@@ -161,7 +163,7 @@
 
   hardware.bluetooth.enable = false;
   services.printing.enable = false;
-  networking.wireless.enable = false;
+  networking.wireless.enable = lib.mkForce false;
   documentation.enable = false;
   documentation.man.enable = false;
   documentation.doc.enable = false;
