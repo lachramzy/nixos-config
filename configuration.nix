@@ -179,6 +179,9 @@
 
   services.fstrim.enable = true;
 
+  services.gnome.gnome-keyring.enable = true;
+  security.pam.services.login.enableGnomeKeyring = true;
+
 
 
 #############
@@ -254,6 +257,7 @@
     gimp
     git
     git-crypt
+    gnome-keyring
     gnome-themes-extra
     hyprshot
     kdePackages.filelight
@@ -263,6 +267,7 @@
     lact
     libreoffice
     librewolf
+    libsecret
     lutris
     mpv
     mov-cli
@@ -292,6 +297,7 @@
     wget
     winetricks
     wineWow64Packages.stable
+    wireguard-tools
     wl-clipboard
     yt-dlp
     zip
