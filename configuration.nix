@@ -301,6 +301,7 @@
     wineWow64Packages.stable
     wireguard-tools
     wl-clipboard
+    yazi
     yt-dlp
     zip
   ];
