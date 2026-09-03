@@ -287,7 +287,6 @@
     pulsemixer
     p7zip
     ripgrep
-    spicetify-cli
     spotify
     swayimg
     s-tui
