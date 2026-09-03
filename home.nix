@@ -101,7 +101,7 @@
   bind = $mainMod, RETURN, exec, kitty
   bind = $mainMod, Q, killactive,
   bind = $mainMod, M, exec, spotify
-  bind = $mainMod, E, exec, thunar
+  bind = $mainMod, E, exec, yazi
   bind = $mainMod, V, togglefloating,
   bind = $mainMod, P, pseudo,
   bind = $mainMod, J, layoutmsg, togglesplit,
