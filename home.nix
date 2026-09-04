@@ -82,7 +82,7 @@
       repeat_rate = 100
 
       follow_mouse = 1
-      sensitivity = -0.8567
+      sensitivity = -0.8564
       accel_profile = flat
   }
 
