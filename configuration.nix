@@ -71,6 +71,15 @@
   systemd.coredump.enable = false;
   time.timeZone = "Australia/Melbourne";
 
+  security.pam.loginLimits = [
+    { domain = "*"; item = "core"; type = "hard"; value = "0"; }
+    { domain = "*"; item = "core"; type = "soft"; value = "0"; }
+  ];
+
+  systemd.settings.Manager = {
+    DefaultLimitCORE = "0";
+  };
+
   services.btrfs.autoScrub = {
     enable = true;
     interval = "monthly";
