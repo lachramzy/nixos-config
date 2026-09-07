@@ -42,7 +42,23 @@
     "amd_pstate=active"
   ];
   powerManagement.cpuFreqGovernor = "performance";
+
   boot.tmp.useTmpfs = true;
+  boot.tmp.tmpfsSize = "32G";
+  swapDevices = [
+    {
+      device = "/mnt/scratch/swapfile";
+      size = 8192; # 8 GB in MB
+    }
+  ];
+  boot.kernel.sysctl = {
+    "vm.swappiness" = 10;
+  };
+  systemd.services.nix-daemon.environment.TMPDIR = "/mnt/scratch/nix-tmp";
+  systemd.tmpfiles.rules = [
+    "d /mnt/scratch/nix-tmp 1777 root root -"
+    "d /mnt/scratch/cache 1777 root root -"
+  ];
 
 
 
@@ -197,6 +213,9 @@
     AMD_VULKAN_ICD = "RADV";
     RADV_PERFSET = "aco";
     MOZ_ENABLE_WAYLAND = "1";
+    MESA_DISK_CACHE_DIR = "/mnt/scratch/cache/mesa";
+    AMD_SHADER_DISK_CACHE_PATH = "/mnt/scratch/cache/amd";
+    CCACHE_DIR = "/mnt/scratch/cache/ccache";
   };
 
   services.gnome.gnome-keyring.enable = true;
