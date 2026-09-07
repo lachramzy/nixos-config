@@ -201,12 +201,13 @@
   };
 
   environment.sessionVariables = {
+    XDG_CACHE_HOME = "/scratch/cache/lachlan";
     AMD_VULKAN_ICD = "RADV";
     RADV_PERFSET = "aco";
     MOZ_ENABLE_WAYLAND = "1";
-    MESA_DISK_CACHE_DIR = "/scratch/cache/mesa";
-    AMD_SHADER_DISK_CACHE_PATH = "/scratch/cache/amd";
-    CCACHE_DIR = "/scratch/cache/ccache";
+    MESA_DISK_CACHE_DIR = "/scratch/cache/lachlan/mesa";
+    AMD_SHADER_DISK_CACHE_PATH = "/scratch/cache/lachlan/amd";
+    CCACHE_DIR = "/scratch/cache/lachlan/ccache";
   };
 
   services.gnome.gnome-keyring.enable = true;
