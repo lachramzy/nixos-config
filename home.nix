@@ -172,6 +172,7 @@
       force_zero_scaling = true
   }
   exec-once = gnome-keyring-daemon --start --components=secrets
+  exec-once = otd-daemon
   '';
     force = true;
   };

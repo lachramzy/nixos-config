@@ -38,7 +38,12 @@
     "cdrom"
   ];
 
-  boot.kernelParams = [ "amd_pstate=active" ];
+  boot.kernelParams = [
+    "amd_pstate=active"
+    "quiet"
+    "loglevel=3"
+    "usbhid.quirks=0x0c45:0x8092:0x00000008"
+  ];
   powerManagement.cpuFreqGovernor = "performance";
   boot.tmp.useTmpfs = true;
 
