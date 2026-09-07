@@ -10,24 +10,21 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelPackages = pkgs.linuxPackages_zen;
 
-#  boot.initrd.luks.devices."enc" = {
-#    device = "/dev/disk/by-uuid/a7876e26-6371-4ed3-83bb-0deacbb82fc8";
-#    preLVM = true;
-#  };
+  boot.initrd.luks.devices."cryptdata" = {
+    device = "/dev/disk/by-uuid/3dc33fd8-dbb2-4d63-aa21-096a698ac1c7";
+    allowDiscards = true;
+  };
+  fileSystems."scratch" = {
+    device = "/dev/mapper/cryptdata";
+    fsType = "xfs";
+    options = [ "defaults" "noatime" "nofail" ];
+  };
 
-#  boot.initrd.luks.devices."cryptdata" = {
-#    device = "/dev/disk/by-uuid/a94af95f-5062-4c1a-aa2e-612645c19f38";
-#    preLVM = true;
-#  };
-
-#  fileSystems."/hdd" = {
-#    device = "/dev/disk/by-uuid/cb0134fc-6dd5-4efc-8114-b683b27b5e6f";
-#    fsType = "ext4";
-#    options = [ 
-#      "users" 
-#      "nofail"
-#    ];
-#  };
+  fileSystems."/hdd" = {
+    device = "/dev/disk/by-uuid/cb0134fc-6dd5-4efc-8114-b683b27b5e6f";
+    fsType = "ext4";
+    options = [ "defaults" "noatime" "nofail" ];
+  };
 
   boot.blacklistedKernelModules = [
     "ipv6"
