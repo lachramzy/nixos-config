@@ -267,6 +267,7 @@
     git-crypt
     gnome-keyring
     gnome-themes-extra
+    gptfdisk
     hyprshot
     kdePackages.filelight
     kdePackages.qtwayland
