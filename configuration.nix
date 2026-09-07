@@ -54,10 +54,10 @@
   boot.kernel.sysctl = {
     "vm.swappiness" = 10;
   };
-  systemd.services.nix-daemon.environment.TMPDIR = "/mnt/scratch/nix-tmp";
+  systemd.services.nix-daemon.environment.TMPDIR = "/scratch/nix-tmp";
   systemd.tmpfiles.rules = [
-    "d /mnt/scratch/nix-tmp 1777 root root -"
-    "d /mnt/scratch/cache 1777 root root -"
+    "d /scratch/nix-tmp 1777 root root -"
+    "d /scratch/cache 1777 root root -"
   ];
 
 
