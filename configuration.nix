@@ -48,7 +48,7 @@
   swapDevices = [
     {
       device = "/mnt/scratch/swapfile";
-      size = 8192; # 8 GB in MB
+      size = 8192;
     }
   ];
   boot.kernel.sysctl = {
