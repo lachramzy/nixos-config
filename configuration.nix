@@ -204,9 +204,9 @@
     AMD_VULKAN_ICD = "RADV";
     RADV_PERFSET = "aco";
     MOZ_ENABLE_WAYLAND = "1";
-    MESA_DISK_CACHE_DIR = "/mnt/scratch/cache/mesa";
-    AMD_SHADER_DISK_CACHE_PATH = "/mnt/scratch/cache/amd";
-    CCACHE_DIR = "/mnt/scratch/cache/ccache";
+    MESA_DISK_CACHE_DIR = "/scratch/cache/mesa";
+    AMD_SHADER_DISK_CACHE_PATH = "/scratch/cache/amd";
+    CCACHE_DIR = "/scratch/cache/ccache";
   };
 
   services.gnome.gnome-keyring.enable = true;
