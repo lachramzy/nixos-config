@@ -45,15 +45,6 @@
 
   boot.tmp.useTmpfs = true;
   boot.tmp.tmpfsSize = "32G";
-  swapDevices = [
-    {
-      device = "/mnt/scratch/swapfile";
-      size = 8192;
-    }
-  ];
-  boot.kernel.sysctl = {
-    "vm.swappiness" = 10;
-  };
   systemd.services.nix-daemon.environment.TMPDIR = "/scratch/nix-tmp";
   systemd.tmpfiles.rules = [
     "d /scratch/nix-tmp 1777 root root -"
