@@ -22,7 +22,7 @@
         scale = 2,
         bitdepth = 10,
         vrr = 2,
-        cm = "hdredid",
+        cm = "srgb",
         sdr_eotf = "srgb",
         supports_wide_color = 1,
         supports_hdr = 1,
@@ -41,8 +41,12 @@
             direct_scanout = 2,
             keep_unmodified_copy = 1,
             use_fp16 = 1,
+            send_content_type = true
         },
         quirks = { prefer_hdr = 0 },
+        misc = {
+          content_type = "game",
+        },
     })
 
     -- ENVIRONMENT VARIABLES
