@@ -31,7 +31,7 @@
         sdr_max_luminance = 203,
         min_luminance = 0.0,
         max_luminance = 1000,
-        max_avg_luminance = 250,
+        max_avg_luminance = 400,
     })
 
     -- RENDER
