@@ -16,7 +16,7 @@
   home.file.".config/hypr/hyprland.conf" = {
     text = ''
   # MONITOR
-  monitor=DP-1,3840x2160@165,0x0,2,bitdepth,10,vrr,2,cm,hdr,sdrbrightness,10,sdrsaturation,1
+  monitor=DP-1,3840x2160@165,0x0,2,bitdepth,10,vrr,2,cm,srgb
   render {
     direct_scanout = 2
   }
