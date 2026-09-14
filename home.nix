@@ -23,18 +23,34 @@
         bitdepth = 10,
         vrr = 2,
         cm = "srgb",
+        sdr_eotf = "srgb",
+        supports_hdr = 1,
+        supports_wide_color = 1,
+        sdrbrightness = 1.5,
+        sdrsaturation = 1.0,
+        sdr_max_luminance = 203,
+        min_luminance = 0.001,
+        max_luminance = 1000,
+        max_avg_luminance = 400,
     })
 
     -- RENDER
     hl.config({
         render = {
             direct_scanout = 2,
+            cm_auto_hdr = 1,
+            keep_unmodified_copy = 1,
+            use_fp16 = 2,
         },
+        quirks = {
+        prefer_hdr = 1, 
+    },
     })
 
     -- ENVIRONMENT VARIABLES
     hl.env("XCURSOR_SIZE", "32")
     hl.env("HYPRCURSOR_SIZE", "32")
+    hl.env("DXVK_HDR", "1")
 
     -- LOOK AND FEEL
     hl.config({
