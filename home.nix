@@ -23,7 +23,7 @@
         bitdepth = 10,
         vrr = 2,
         cm = "hdredid",
-        sdr_eotf = "srgb",
+        sdr_eotf = "gamma22",
         supports_wide_color = 1,
         supports_hdr = 1,
         sdrbrightness = 1.0,
