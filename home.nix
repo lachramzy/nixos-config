@@ -26,12 +26,12 @@
         sdr_eotf = "srgb",
         supports_hdr = 1,
         supports_wide_color = 1,
-        sdrbrightness = 4.0,
+        sdrbrightness = 2.0,
         sdrsaturation = 1.0,
         sdr_max_luminance = 203,
         min_luminance = 0.0,
         max_luminance = 1000,
-        max_avg_luminance = 400,
+        max_avg_luminance = 250,
     })
 
     -- RENDER
