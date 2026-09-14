@@ -18,7 +18,7 @@
   # MONITOR
   monitor=DP-1,3840x2160@165,0x0,2,bitdepth,10,vrr,2,cm,hdr,sdrbrightness,1.2,sdrsaturation,1.15
   render {
-    cm_fs_passthrough = true
+    cm_fs_passthrough = 2
 }
 
   # ENVIRONMENT VARIABLES

@@ -208,6 +208,9 @@
     MESA_DISK_CACHE_DIR = "/scratch/cache/lachlan/mesa";
     AMD_SHADER_DISK_CACHE_PATH = "/scratch/cache/lachlan/amd";
     CCACHE_DIR = "/scratch/cache/lachlan/ccache";
+    ENABLE_HDR_WSI = "1";
+    DXVK_HDR = "1";
+    ENABLE_GAMESCOPE_WSI = "1";
   };
 
   services.gnome.gnome-keyring.enable = true;
