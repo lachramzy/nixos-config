@@ -23,29 +23,27 @@
         bitdepth = 10,
         vrr = 2,
         cm = "hdredid",
-        sdr_eotf = "gamma22",
-        supports_hdr = 1,
+        sdr_eotf = "srgb",
         supports_wide_color = 1,
+        supports_hdr = 1,
         sdrbrightness = 1.0,
         sdrsaturation = 1.0,
         sdr_min_luminance = 0.0,
         sdr_max_luminance = 700,
         min_luminance = 0.0,
         max_luminance = 1000,
-        max_avg_luminance = 350,
+        max_avg_luminance = 250,
     })
 
     -- RENDER
     hl.config({
         render = {
             direct_scanout = 2,
-            cm_auto_hdr = 1,
             keep_unmodified_copy = 1,
             use_fp16 = 1,
+            cm_auto_hdr = 1,
         },
-        quirks = {
-        prefer_hdr = 1, 
-    },
+        quirks = { prefer_hdr = 0 },
     })
 
     -- ENVIRONMENT VARIABLES
