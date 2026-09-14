@@ -27,10 +27,10 @@
         supports_wide_color = 1,
         supports_hdr = 1,
         sdr_min_luminance = 0.0,
-        sdr_max_luminance = 750,
+        sdr_max_luminance = 700,
         min_luminance = 0.0,
         max_luminance = 1000,
-        max_avg_luminance = 750,
+        max_avg_luminance = 700,
     })
 
     -- RENDER
