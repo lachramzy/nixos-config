@@ -44,9 +44,6 @@
             send_content_type = true
         },
         quirks = { prefer_hdr = 0 },
-        misc = {
-          content_type = "game",
-        },
     })
 
     -- ENVIRONMENT VARIABLES
