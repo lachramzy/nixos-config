@@ -29,10 +29,10 @@
         sdrbrightness = 1.0,
         sdrsaturation = 1.0,
         sdr_min_luminance = 0.0,
-        sdr_max_luminance = 600,
+        sdr_max_luminance = 203,
         min_luminance = 0.0,
         max_luminance = 1000,
-        max_avg_luminance = 600,
+        max_avg_luminance = 250,
     })
 
     -- RENDER
