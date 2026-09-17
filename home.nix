@@ -68,14 +68,14 @@
 
         decoration = {
             rounding = 0,
-            rounding_power = 0,
+            rounding_power = 1,
             active_opacity = 1,
             inactive_opacity = 1,
             fullscreen_opacity = 1,
             shadow = {
                 enabled = false,
                 range = 0,
-                render_power = 0,
+                render_power = 1,
                 color = "rgba(00000000)",
             },
             blur = {
