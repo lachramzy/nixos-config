@@ -276,6 +276,7 @@
     btop
     cava
     celluloid
+    cmake
     cmatrix
     croc
     curl
