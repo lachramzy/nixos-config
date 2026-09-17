@@ -23,16 +23,15 @@
         bitdepth = 10,
         vrr = 2,
         cm = "srgb",
-        sdr_eotf = "gamma22force",
+        sdr_eotf = "srgb",
         supports_wide_color = 1,
-        supports_hdr = 1,
         sdrbrightness = 1.0,
         sdrsaturation = 1.0,
         sdr_min_luminance = 0.0,
-        sdr_max_luminance = 203,
+        sdr_max_luminance = 600,
         min_luminance = 0.0,
-        max_luminance = 1000,
-        max_avg_luminance = 250,
+        max_luminance = 600,
+        max_avg_luminance = 600,
     })
 
     -- RENDER
@@ -43,7 +42,6 @@
             use_fp16 = 1,
             send_content_type = true
         },
-        quirks = { prefer_hdr = 0 },
     })
 
     -- ENVIRONMENT VARIABLES
