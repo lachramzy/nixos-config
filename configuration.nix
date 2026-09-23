@@ -289,6 +289,7 @@
     ffmpeg-full
     gamescope
     gammastep
+    geekbench
     gimp
     git
     git-crypt
