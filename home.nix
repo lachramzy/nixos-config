@@ -42,6 +42,9 @@
             use_fp16 = 1,
             send_content_type = true
         },
+        cursor = {
+            no_hardware_cursors = true,
+        },
     })
 
     -- ENVIRONMENT VARIABLES
