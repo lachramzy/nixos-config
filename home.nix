@@ -43,7 +43,7 @@
             send_content_type = true
         },
         cursor = {
-            no_hardware_cursors = true,
+            no_hardware_cursors = false,
         },
     })
 
