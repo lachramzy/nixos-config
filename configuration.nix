@@ -285,6 +285,7 @@
     discord
     easyeffects
     ethtool
+    exodus
     fastfetch
     ffmpeg-full
     gamescope
