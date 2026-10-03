@@ -157,6 +157,7 @@
     hl.bind(mainMod .. " + INSERT", hl.dsp.exec_cmd("hyprshot -m window"))
     hl.bind(mainMod .. " + CTRL + X", hl.dsp.exec_cmd("hyprctl kill"))
     hl.bind(mainMod .. " + SHIFT + F", hl.dsp.exec_cmd("filelight"))
+    hl.bind(mainMod .. " + C", hl.dsp.exec_cmd("exodus"))
 
     -- Focus movement
     hl.bind(mainMod .. " + left", hl.dsp.focus({ direction = "left" }))
