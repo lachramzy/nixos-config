@@ -268,12 +268,11 @@
   ];
 
   programs.ghostty = {
-  enable = true;
-  enableFishIntegration = true;
-
-  settings = {
-    background = "#000000";
-    foreground = "#ffffff";
+    enable = true;
+    enableFishIntegration = true;
+    settings = {
+      theme = "TokyoNight Storm";
+      background = "#000000";
     };
   };
 
