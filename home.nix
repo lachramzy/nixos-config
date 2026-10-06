@@ -267,11 +267,13 @@
     papirus-icon-theme
   ];
 
-  programs.kitty = {
-    enable = true;
-    settings = {
-      confirm_os_window_close = 0;
-      paste_actions = "no-op";
+  programs.ghostty = {
+  enable = true;
+  enableFishIntegration = true;
+
+  settings = {
+    background = "#000000";
+    foreground = "#ffffff";
     };
   };
 
