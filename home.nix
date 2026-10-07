@@ -272,6 +272,8 @@
     settings = {
       confirm_os_window_close = 0;
       start_as_fullscreen = false;
+      remember_window_size = false;
+      linux_display_server = "wayland";
     };
   };
 
