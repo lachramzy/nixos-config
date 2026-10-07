@@ -320,6 +320,7 @@
     protonup-qt
     protontricks
     proton-vpn-cli
+    psmisc
     pulsemixer
     p7zip
     ripgrep
