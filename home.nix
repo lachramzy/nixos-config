@@ -269,6 +269,10 @@
 
   programs.kitty = {
     enable = true;
+    settings = {
+      confirm_os_window_close = 0;
+      start_as_fullscreen = false;
+    };
   };
 
   home.stateVersion = "26.05";
