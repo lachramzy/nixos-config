@@ -272,6 +272,8 @@
     settings = {
       theme = "TokyoNight Storm";
       background = "#000000";
+      window-theme = "dark";
+      gtk-single-instance = true;
     };
   };
 
