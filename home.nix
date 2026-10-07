@@ -115,6 +115,7 @@
             force_default_wallpaper = 0,
             background_color = "rgb(000000)",
             disable_splash_rendering = true,
+            hl.windowrule({ match = { class = "Ghostty" }, opacity = 1.0 })
         },
 
         xwayland = {
