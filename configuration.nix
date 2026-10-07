@@ -306,7 +306,7 @@
     libreoffice
     librewolf
     libsecret
-    lutris
+ #   lutris
     mpv
     mov-cli
     nixpkgs-fmt
@@ -316,7 +316,7 @@
     openrgb
     osu-lazer-bin
     polychromatic
-    prismlauncher
+#    prismlauncher
     protonup-qt
     protontricks
     proton-vpn-cli
@@ -347,16 +347,16 @@
     package = pkgs.librewolf;
   };
 
-  programs.steam = {
-    enable = true;
-    extraCompatPackages = with pkgs; [
-      proton-ge-bin
-    ];
-    remotePlay.openFirewall = true;
-    localNetworkGameTransfers.openFirewall = true;
-  };
-  programs.gamemode.enable = true;
-  programs.gamescope.enable = true;
+#  programs.steam = {
+#    enable = true;
+#    extraCompatPackages = with pkgs; [
+#      proton-ge-bin
+#    ];
+#    remotePlay.openFirewall = true;
+#    localNetworkGameTransfers.openFirewall = true;
+#  };
+#  programs.gamemode.enable = true;
+#  programs.gamescope.enable = true;
 
 
 
