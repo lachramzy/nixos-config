@@ -291,7 +291,6 @@
     gamescope
     gammastep
     geekbench
-    ghostty
     gimp
     git
     git-crypt
@@ -302,6 +301,7 @@
     kdePackages.filelight
     kdePackages.qtwayland
     keepassxc
+    kitty
     lact
     libreoffice
     librewolf
