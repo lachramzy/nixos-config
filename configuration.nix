@@ -270,6 +270,7 @@
 
   environment.systemPackages = with pkgs; [
     adwaita-icon-theme
+    alacritty
     alsa-plugins
     alsa-utils
     ani-cli
@@ -291,7 +292,6 @@
     gamescope
     gammastep
     geekbench
-    ghostty
     gimp
     git
     git-crypt
