@@ -267,9 +267,8 @@
     papirus-icon-theme
   ];
 
-  programs.ghostty = {
+  programs.alacritty = {
     enable = true;
-    enableFishIntegration = true;
     settings = {
       theme = "TokyoNight Storm";
       background = "#000000";
