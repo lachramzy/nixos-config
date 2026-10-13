@@ -314,7 +314,7 @@
     obsidian
     obs-studio
     openrgb
-#    osu-lazer-bin
+    osu-lazer-bin
     polychromatic
 #    prismlauncher
     protonup-qt
