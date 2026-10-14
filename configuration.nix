@@ -316,7 +316,7 @@
     openrgb
     osu-lazer-bin
     polychromatic
-#    prismlauncher
+    prismlauncher
     protonup-qt
     protontricks
     proton-vpn-cli
