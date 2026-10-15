@@ -330,6 +330,7 @@
     termdown
     thunar
     tty-clock
+    umu-launcher
     unrar
     unzip
     vim
