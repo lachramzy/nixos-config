@@ -306,7 +306,7 @@
     libreoffice
     librewolf
     libsecret
- #   lutris
+    lutris
     mpv
     mov-cli
     nixpkgs-fmt
