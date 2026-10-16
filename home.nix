@@ -39,7 +39,7 @@
         render = {
             direct_scanout = 2,
             keep_unmodified_copy = 1,
-            use_fp16 = 1,
+            use_fp16 = 2,
             send_content_type = true
         },
         cursor = {
