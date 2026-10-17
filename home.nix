@@ -158,6 +158,7 @@
     hl.bind(mainMod .. " + CTRL + X", hl.dsp.exec_cmd("hyprctl kill"))
     hl.bind(mainMod .. " + SHIFT + F", hl.dsp.exec_cmd("filelight"))
     hl.bind(mainMod .. " + C", hl.dsp.exec_cmd("exodus"))
+    hl.bind(mainMod .. " + CONTROL + ALT + SHIFT + L", hl.dsp.exec_cmd("hyprlock"))
 
     -- Focus movement
     hl.bind(mainMod .. " + left", hl.dsp.focus({ direction = "left" }))
@@ -203,6 +204,23 @@
         hl.exec_cmd("otd-daemon")
     end)
   '';
+
+  programs.hyprlock = {
+    enable = true;
+    settings = {
+      general = {
+        hide_cursor = true;
+        ignore_empty_input = true;
+      };
+
+      background = [
+        {
+        monitor = "";
+        color = "rgb(0, 0, 0)";
+        }
+      ];
+    };
+  };
 
   dconf.enable = true;
   dconf.settings = {

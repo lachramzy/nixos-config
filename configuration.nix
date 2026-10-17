@@ -158,6 +158,8 @@
     '';
   };
 
+  security.pam.services.hyprlock = {};
+
   nix = {
     settings = {
       substituters = [
