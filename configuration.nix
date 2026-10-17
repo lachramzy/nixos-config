@@ -297,6 +297,7 @@
     gnome-keyring
     gnome-themes-extra
     gptfdisk
+    hyprlock
     hyprshot
     kdePackages.filelight
     kdePackages.qtwayland
