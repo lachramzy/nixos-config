@@ -16,7 +16,7 @@
   xdg.configFile."hypr/hyprland.lua".text = ''
     -- MONITOR
     hl.monitor({
-        output = "DP-1",
+        output = "DP-2",
         mode = "3840x2160@165",
         position = "0x0",
         scale = 2,
