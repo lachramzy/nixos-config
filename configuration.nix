@@ -309,7 +309,6 @@
     libreoffice
     librewolf
     libsecret
-    lutris
     mpv
     mov-cli
     nixpkgs-fmt
@@ -317,10 +316,8 @@
     obsidian
     obs-studio
     openrgb
-    osu-lazer-bin
     pkgs.llama-cpp-rocm
     polychromatic
-    prismlauncher
     protonup-qt
     protontricks
     proton-vpn-cli
@@ -352,17 +349,6 @@
     enable = true;
     package = pkgs.librewolf;
   };
-
-  programs.steam = {
-    enable = true;
-    extraCompatPackages = with pkgs; [
-      proton-ge-bin
-    ];
-    remotePlay.openFirewall = true;
-    localNetworkGameTransfers.openFirewall = true;
-  };
-  programs.gamemode.enable = true;
-  programs.gamescope.enable = true;
 
 
 
