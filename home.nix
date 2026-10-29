@@ -22,7 +22,7 @@
         scale = 2,
         bitdepth = 10,
         vrr = 2,
-        cm = "hdr",
+        cm = "hdredid",
         sdr_eotf = "gamma22",
         supports_wide_color = 1,
         supports_hdr = 1,
