@@ -23,9 +23,10 @@
         bitdepth = 10,
         vrr = 2,
         cm = "hdr",
-        sdr_eotf = "srgb",
+        sdr_eotf = "gamma22",
         supports_wide_color = 1,
-        sdrbrightness = 1.0,
+        supports_hdr = 1,
+        sdrbrightness = 1.2,
         sdrsaturation = 1.0,
         sdr_min_luminance = 0.0,
         sdr_max_luminance = 400,
@@ -41,6 +42,7 @@
             keep_unmodified_copy = 1,
             use_fp16 = 2,
             send_content_type = true
+            cm_sdr_eotf = 1,
         },
         cursor = {
             no_hardware_cursors = false,
