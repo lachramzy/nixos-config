@@ -22,7 +22,7 @@
         scale = 2,
         bitdepth = 10,
         vrr = 2,
-        cm = "srgb",
+        cm = "hdr",
         sdr_eotf = "gamma22",
         supports_wide_color = 1,
         supports_hdr = 1,
@@ -31,8 +31,8 @@
         sdr_min_luminance = 0.0,
         sdr_max_luminance = 203,
         min_luminance = 0.0,
-        max_luminance = 1000,
-        max_avg_luminance = 400,
+        max_luminance = 600,
+        max_avg_luminance = 600,
     })
 
     -- RENDER
