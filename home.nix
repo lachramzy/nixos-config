@@ -27,7 +27,7 @@
         supports_wide_color = 1,
         supports_hdr = 1,
         sdrbrightness = 3.3,
-        sdrsaturation = 1.05,
+        sdrsaturation = 1.0,
         sdr_min_luminance = 0.0,
         sdr_max_luminance = 203,
         min_luminance = 0.0,
