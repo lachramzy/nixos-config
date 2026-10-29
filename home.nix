@@ -26,7 +26,7 @@
         sdr_eotf = "gamma22",
         supports_wide_color = 1,
         supports_hdr = 1,
-        sdrbrightness = 3.5,
+        sdrbrightness = 4.92,
         sdrsaturation = 1.0,
         sdr_min_luminance = 0.0,
         sdr_max_luminance = 203,
