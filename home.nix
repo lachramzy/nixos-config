@@ -42,7 +42,6 @@
             keep_unmodified_copy = 1,
             use_fp16 = 2,
             send_content_type = true
-            cm_sdr_eotf = 1,
         },
         cursor = {
             no_hardware_cursors = false,
