@@ -290,6 +290,7 @@
     exodus
     fastfetch
     ffmpeg-full
+    furmark
     gamescope
     gammastep
     geekbench
@@ -309,6 +310,7 @@
     libreoffice
     librewolf
     libsecret
+    memtest_vulkan
     mpv
     mov-cli
     nixpkgs-fmt
@@ -326,6 +328,7 @@
     p7zip
     ripgrep
     spotify
+    stress-ng
     swayimg
     s-tui
     termdown
