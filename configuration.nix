@@ -326,6 +326,7 @@
     psmisc
     pulsemixer
     p7zip
+    qbittorrent
     ripgrep
     spotify
     stress-ng
