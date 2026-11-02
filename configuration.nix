@@ -318,6 +318,7 @@
     obsidian
     obs-studio
     openrgb
+    osu-lazer
     pkgs.llama-cpp-rocm
     polychromatic
     protonup-qt

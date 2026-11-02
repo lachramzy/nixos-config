@@ -157,6 +157,7 @@
     hl.bind(mainMod .. " + SHIFT + F", hl.dsp.exec_cmd("filelight"))
     hl.bind(mainMod .. " + C", hl.dsp.exec_cmd("exodus"))
     hl.bind(mainMod .. " + CONTROL + ALT + SHIFT + L", hl.dsp.exec_cmd("hyprlock"))
+    hl.bind(mainMod .. " + CONTROL + O", hl.dsp.exec_cmd("osu-lazer"))
 
     -- Focus movement
     hl.bind(mainMod .. " + left", hl.dsp.focus({ direction = "left" }))
