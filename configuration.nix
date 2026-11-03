@@ -119,17 +119,13 @@
     function nrs
       set -l old_pwd $PWD
         cd /etc/nixos
-
         echo "=== Rebuilding system ==="
-
         read --prompt-str "Update flake inputs? (y/N) " confirm
         if test "$confirm" = y; or test "$confirm" = Y
           echo "=== Updating flake inputs ==="
           nix flake update
         end
-
         echo "=== Running nixos-rebuild ==="
-
         if sudo nixos-rebuild switch --flake .#nixos-btw --cores 16 --max-jobs 2 $argv
           echo "=== Build successful, committing changes ==="
           git add .
@@ -140,15 +136,21 @@
           else
             echo "No changes to commit"
           end
-          
           cd $old_pwd
           return 0
         else
           echo "❌ Rebuild failed, not committing"
-          
           cd $old_pwd
           return 1
         end
+      end
+
+    function nix-gc
+        echo "=== Deleting old generations and garbage collecting ==="
+        sudo nix-collect-garbage -d
+        echo "=== Optimizing Nix store ==="
+        sudo nix-store --optimize
+        echo "✅ Nix cleanup complete!"
       end
   '';
     loginShellInit = ''
