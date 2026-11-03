@@ -145,7 +145,7 @@
         end
       end
 
-    function nix-gc
+    function ngc
         echo "=== Deleting old generations and garbage collecting ==="
         sudo nix-collect-garbage -d
         echo "=== Optimizing Nix store ==="
