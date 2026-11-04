@@ -20,7 +20,7 @@
         mode = "3840x2160@165",
         position = "0x0",
         scale = 2,
-        bitdepth = 10,
+        bitdepth = 8,
         vrr = 2,
         cm = "srgb",
         sdr_eotf = "srgb",
