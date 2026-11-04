@@ -25,7 +25,6 @@
         cm = "srgb",
         sdr_eotf = "srgb",
         supports_wide_color = 1,
-        supports_hdr = 1,
         sdrbrightness = 1.0,
         sdrsaturation = 1.0,
         sdr_min_luminance = 0.0,
