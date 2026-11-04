@@ -152,7 +152,7 @@
     hl.bind(mainMod .. " + SHIFT + E", hl.dsp.exec_cmd("easyeffects"))
     hl.bind(mainMod .. " + O", hl.dsp.exec_cmd("obsidian"))
     hl.bind(mainMod .. " + P", hl.dsp.exec_cmd("keepassxc"))
-    hl.bind(mainMod .. " + INSERT", hl.dsp.exec_cmd("hyprshot -m window"))
+    hl.bind(mainMod .. " + INSERT", hl.dsp.exec_cmd("hyprshot -m region"))
     hl.bind(mainMod .. " + CTRL + X", hl.dsp.exec_cmd("hyprctl kill"))
     hl.bind(mainMod .. " + SHIFT + F", hl.dsp.exec_cmd("filelight"))
     hl.bind(mainMod .. " + C", hl.dsp.exec_cmd("exodus"))
