@@ -356,6 +356,7 @@
     yazi
     yt-dlp
     zip
+    prismlauncher
   ];
 
   programs.firefox = {
