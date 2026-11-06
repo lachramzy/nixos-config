@@ -357,6 +357,7 @@
     yt-dlp
     zip
     prismlauncher
+    lutris
   ];
 
   programs.firefox = {
