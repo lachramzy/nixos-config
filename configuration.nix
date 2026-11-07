@@ -356,25 +356,12 @@
     yazi
     yt-dlp
     zip
-    prismlauncher
-    lutris
   ];
 
   programs.firefox = {
     enable = true;
     package = pkgs.librewolf;
   };
-
-  programs.steam = {
-    enable = true;
-    extraCompatPackages = with pkgs; [
-      proton-ge-bin
-    ];
-    remotePlay.openFirewall = true;
-    localNetworkGameTransfers.openFirewall = true;
-  };
-  programs.gamemode.enable = true;
-  programs.gamescope.enable = true;
 
 
 
