@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, inputs, ... }:
 
 {
 ############
@@ -105,13 +105,13 @@
 
   i18n.defaultLocale = "en_AU.UTF-8";
 
+  
   programs.hyprland = {
     enable = true;
-    package = pkgs.hyprland.overrideAttrs (old: {
-      patches = (old.patches or []) ++ [
-        ./patches/hyprland-cm-tweak.patch
-      ];
-    });
+    package =
+      inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+    portalPackage =
+      inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
   };
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
