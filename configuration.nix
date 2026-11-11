@@ -336,6 +336,7 @@
     osu-lazer-bin
     pkgs.llama-cpp-rocm
     polychromatic
+    prismlauncher
     protonup-qt
     protontricks
     proton-vpn-cli
