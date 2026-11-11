@@ -1,0 +1,13 @@
+diff --git a/src/helpers/cm/ColorManagement.hpp b/src/helpers/cm/ColorManagement.hpp
+index c8d1cfcba..6b81f5765 100644
+--- a/src/helpers/cm/ColorManagement.hpp
++++ b/src/helpers/cm/ColorManagement.hpp
+@@ -18,7 +18,7 @@
+ #define SDR_REF_LUMINANCE 80.0f
+ #define HDR_MIN_LUMINANCE 0.005f
+ #define HDR_MAX_LUMINANCE 10000.0f
+-#define HDR_REF_LUMINANCE 203.0f
++#define HDR_REF_LUMINANCE 600.0f
+ #define HLG_MAX_LUMINANCE 1000.0f
+ 
+ namespace Render {

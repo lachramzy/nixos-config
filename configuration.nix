@@ -105,7 +105,14 @@
 
   i18n.defaultLocale = "en_AU.UTF-8";
 
-  programs.hyprland.enable = true;
+  programs.hyprland = {
+    enable = true;
+    package = pkgs.hyprland.overrideAttrs (old: {
+      patches = (old.patches or []) ++ [
+        ./patches/hyprland-cm-tweak.patch
+      ];
+    });
+  };
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   hardware.i2c.enable = true;
