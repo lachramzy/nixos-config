@@ -1,4 +1,3 @@
-
 {
   description = "NixOS flake config";
 
@@ -9,26 +8,30 @@
       url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-      hyprland.url = "git+file:///home/lachlan/Hyprland";
-    };
+
+    hyprland.url = "git+file:///home/lachlan/Hyprland";
+  };
 
   outputs = { self, nixpkgs, home-manager, ... } @ inputs: {
     nixosConfigurations.nixos-btw = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
 
-      # Make flake inputs available to configuration.nix
+      # Make flake inputs available to NixOS modules
       specialArgs = {
         inherit inputs;
       };
 
       modules = [
-        ./configuration.nix
+        ./boot.nix
+        ./system.nix
+        ./pkgs.nix
+        ./drivers.nix
+        ./gui.nix
         ./hardware-configuration.nix
         home-manager.nixosModules.home-manager
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.users.lachlan = import ./home.nix;
         }
       ];
     };
