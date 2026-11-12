@@ -3,14 +3,14 @@
 {
   home.username = "lachlan";
   home.homeDirectory = "/home/lachlan";
-
-  programs.git.enable = true;
-  programs.git.settings.user.name = "lachlan";
-  programs.git.settings.user.email = "lacjamram@gmail.com";
-  
   home.sessionPath = [
     "${config.home.homeDirectory}/.local/bin"
   ];
+
+  # GIT
+  programs.git.enable = true;
+  programs.git.settings.user.name = "lachlan";
+  programs.git.settings.user.email = "lacjamram@gmail.com";
 
   # HYPRLAND RICE
   xdg.configFile."hypr/hyprland.lua".text = ''
@@ -53,7 +53,7 @@
     hl.env("HYPRCURSOR_SIZE", "32")
     hl.env("DXVK_HDR", "1")
 
-    -- LOOK AND FEEL
+    -- DESIGN
     hl.config({
         general = {
             gaps_in = 0,
@@ -67,7 +67,6 @@
             allow_tearing = false,
             layout = "dwindle",
         },
-
         decoration = {
             rounding = 0,
             rounding_power = 1,
@@ -89,19 +88,17 @@
                 vibrancy = 0,
             },
         },
-
         animations = {
             enabled = false,
         },
-
         dwindle = {
             preserve_split = true,
         },
-
         master = {
             new_status = "master",
         },
 
+  -- INPUTS
         input = {
             kb_layout = "us",
             repeat_delay = 150,
@@ -111,13 +108,13 @@
             accel_profile = "flat",
         },
 
+  -- MISC
         misc = {
             disable_hyprland_logo = true,
             force_default_wallpaper = 0,
             background_color = "rgb(000000)",
             disable_splash_rendering = true,
         },
-
         xwayland = {
             force_zero_scaling = true,
         },
@@ -132,13 +129,10 @@
 
     -- KEYBINDS
     local mainMod = "SUPER"
-
-    -- Application launches
     hl.bind(mainMod .. " + RETURN", hl.dsp.exec_cmd("ghostty"))
     hl.bind(mainMod .. " + Q", hl.dsp.window.close())
     hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("spotify"))
-    hl.bind(mainMod .. " + ALT + E", hl.dsp.exec_cmd("thunar"))
-    hl.bind(mainMod .. " + E", hl.dsp.exec_cmd("ghostty --class floating_mixer -e yazi"))
+    hl.bind(mainMod .. " + E", hl.dsp.exec_cmd("thunar"))
     hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
     hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))
     hl.bind(mainMod .. " + W", hl.dsp.exec_cmd("librewolf"))
@@ -158,40 +152,26 @@
     hl.bind(mainMod .. " + C", hl.dsp.exec_cmd("exodus"))
     hl.bind(mainMod .. " + CONTROL + ALT + SHIFT + L", hl.dsp.exec_cmd("hyprlock"))
     hl.bind(mainMod .. " + CONTROL + O", hl.dsp.exec_cmd("osu!"))
-
-    -- Focus movement
     hl.bind(mainMod .. " + left", hl.dsp.focus({ direction = "left" }))
     hl.bind(mainMod .. " + right", hl.dsp.focus({ direction = "right" }))
     hl.bind(mainMod .. " + up", hl.dsp.focus({ direction = "up" }))
     hl.bind(mainMod .. " + down", hl.dsp.focus({ direction = "down" }))
-
-    -- Workspace switching
     for i = 1, 9 do
         hl.bind(mainMod .. " + " .. i, hl.dsp.focus({ workspace = i }))
         hl.bind(mainMod .. " + ALT + " .. i, hl.dsp.window.move({ workspace = i }))
     end
     hl.bind(mainMod .. " + 0", hl.dsp.focus({ workspace = 10 }))
     hl.bind(mainMod .. " + ALT + 0", hl.dsp.window.move({ workspace = 10 }))
-
-    -- Mouse scroll workspaces
     hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
     hl.bind(mainMod .. " + mouse_up", hl.dsp.focus({ workspace = "e-1" }))
-
-    -- Mouse move/resize
     hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
     hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
-
-    -- Volume controls
     hl.bind(mainMod .. " + Page_Up", hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 2%+"), { locked = true, repeating = true })
     hl.bind(mainMod .. " + Page_Down", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%-"), { locked = true, repeating = true })
     hl.bind("XF86AudioMute", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"), { locked = true, repeating = true })
     hl.bind("XF86AudioMicMute", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"), { locked = true, repeating = true })
-
-    -- Brightness
     hl.bind(mainMod .. " + SHIFT + Page_Up", hl.dsp.exec_cmd("ddcutil -b 10 setvcp 10 + 20"), { locked = true, repeating = true })
     hl.bind(mainMod .. " + SHIFT + Page_Down", hl.dsp.exec_cmd("ddcutil -b 10 setvcp 10 - 20"), { locked = true, repeating = true })
-
-    -- Media keys
     hl.bind("XF86AudioNext", hl.dsp.exec_cmd("playerctl next"), { locked = true })
     hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
     hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
@@ -203,7 +183,6 @@
         hl.exec_cmd("otd-daemon")
     end)
   '';
-
   programs.hyprlock = {
     enable = true;
     package = pkgsUnstable.hyprlock;
@@ -212,7 +191,6 @@
         hide_cursor = true;
         ignore_empty_input = true;
       };
-
       background = [
         {
         monitor = "";
@@ -285,15 +263,37 @@
     papirus-icon-theme
   ];
 
-  programs.kitty = {
+  programs.ghostty = {
     enable = true;
+    package = pkgsUnstable.ghostty;
     settings = {
-      confirm_os_window_close = 0;
-      start_as_fullscreen = false;
-      remember_window_size = false;
-      linux_display_server = "wayland";
+      confirm-close-surface = false;
+      background = "#000000";
+      foreground = "#c8d3f5";
+      cursor-color = "#c8d3f5";
+      selection-background = "#2d3f76";
+      selection-foreground = "#c8d3f5";
+      palette = [
+        "0=#1b1d2b"
+        "1=#ff757f"
+        "2=#c3e88d"
+        "3=#ffc777"
+        "4=#82aaff"
+        "5=#c099ff"
+        "6=#86e1fc"
+        "7=#828bb8"
+        "8=#444a73"
+        "9=#ff8d94"
+        "10=#c7fb6d"
+        "11=#ffd8ab"
+        "12=#9ab8ff"
+        "13=#caabff"
+        "14=#b2ebff"
+        "15=#c8d3f5"
+      ];
     };
   };
 
+  # HOME VERSION
   home.stateVersion = "26.05";
 }
