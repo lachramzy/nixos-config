@@ -2,10 +2,7 @@
   description = "NixOS flake config";
 
   inputs = {
-    # Keep the base NixOS module set on the existing stable release.
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
-
-    # Selectively use current nixos-unstable packages where requested.
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     home-manager = {
@@ -13,7 +10,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Keep the existing local HDR-patched Hyprland source.
     hyprland.url = "git+file:///home/lachlan/Hyprland";
   };
 
@@ -27,13 +23,9 @@
     in {
       nixosConfigurations.nixos-btw = nixpkgs.lib.nixosSystem {
         inherit system;
-
-        # Make both flake inputs and the targeted unstable package set
-        # available to the NixOS modules.
         specialArgs = {
           inherit inputs pkgsUnstable;
         };
-
         modules = [
           ./boot.nix
           ./system.nix

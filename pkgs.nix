@@ -1,13 +1,9 @@
 { pkgs, ... }:
 
 {
-  # Stable package channel (nixos-26.05).
-  # To install a package from stable, add it to this file.
-  # Packages in upkgs.nix are selected independently from nixos-unstable.
-
   nixpkgs.config.allowUnfree = true;
 
-  # Fonts remain on stable.
+  # FONTS
   fonts = {
     packages = with pkgs; [
       noto-fonts
@@ -28,7 +24,7 @@
     };
   };
 
-  # Stable system applications and utilities.
+  # STABLE PACKAGES
   environment.systemPackages = with pkgs; [
     adwaita-icon-theme
     btop
@@ -91,7 +87,7 @@
     zip
   ];
 
-  # Packages installed specifically for this user (stable).
+  # USER PACKAGES
   users.users.lachlan.packages = with pkgs; [
     tree
   ];

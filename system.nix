@@ -1,29 +1,27 @@
 { config, lib, pkgs, pkgsUnstable, ... }:
 
 {
-  # Storage mounts for the encrypted data volumes configured in boot.nix
+  # MOUNT POINTS
   fileSystems."/scratch" = {
     device = "/dev/mapper/cryptdata";
     fsType = "xfs";
     options = [ "defaults" "noatime" "nofail" ];
   };
-
   fileSystems."/hdd" = {
     device = "/dev/mapper/crypt-hdd";
     fsType = "ext4";
     options = [ "defaults" "noatime" "nofail" ];
   };
-
   systemd.services.nix-daemon.environment.TMPDIR = "/scratch/nix-tmp";
   systemd.tmpfiles.rules = [
     "d /scratch/nix-tmp 1777 root root -"
     "d /scratch/cache 1777 root root -"
   ];
 
-  # CPU power management
+  # CPU POWER
   powerManagement.cpuFreqGovernor = "performance";
 
-  # Networking
+  # NETWORKING
   networking.hostName = "nixos-btw";
   networking.nameservers = [ "1.1.1.1" "1.0.0.1" "8.8.8.8" ];
   networking.firewall = {
@@ -32,8 +30,6 @@
   networking.networkmanager.enable = true;
   networking.firewall.checkReversePath = false;
   networking.wireless.enable = lib.mkForce false;
-
-  # Network and kernel tuning
   boot.kernel.sysctl = {
     "net.core.default_qdisc" = "fq";
     "net.ipv4.tcp_congestion_control" = "bbr";
@@ -43,26 +39,26 @@
     "net.ipv4.tcp_wmem" = "4096 65536 16777216";
   };
 
+  # SYSTEMD
   services.resolved.enable = true;
   systemd.coredump.enable = false;
   time.timeZone = "Australia/Melbourne";
-
   security.pam.loginLimits = [
     { domain = "*"; item = "core"; type = "hard"; value = "0"; }
     { domain = "*"; item = "core"; type = "soft"; value = "0"; }
   ];
-
   systemd.settings.Manager = {
     DefaultLimitCORE = "0";
   };
 
+  # FS
   services.btrfs.autoScrub = {
     enable = true;
     interval = "monthly";
   };
   services.fstrim.enable = true;
 
-  # Security
+  # SECURITY
   security = {
     apparmor.enable = true;
     protectKernelImage = true;
@@ -72,15 +68,13 @@
     sudo.execWheelOnly = true;
     forcePageTableIsolation = true;
   };
-
   i18n.defaultLocale = "en_AU.UTF-8";
 
-  # Interactive shell configuration
+  # SHELL
   programs.fish = {
     enable = true;
     interactiveShellInit = ''
       set -g fish_greeting
-
       function nrs
         set -l old_pwd $PWD
           cd /etc/nixos
@@ -109,7 +103,6 @@
             return 1
           end
         end
-
       function ngc
           echo "=== Deleting old generations and garbage collecting ==="
           sudo nix-collect-garbage -d
@@ -120,7 +113,7 @@
     '';
   };
 
-  # Nix daemon and build settings
+  # NIX
   nix = {
     settings = {
       substituters = [
@@ -139,30 +132,31 @@
     };
   };
 
-  # User account
+  # USER
   users.users.lachlan = {
     isNormalUser = true;
     extraGroups = [ "wheel" "video" "networkmanager" "i2c-dev" "plugdev" ];
     shell = pkgs.fish;
   };
 
+  # DISABLED SERVICES
   services.printing.enable = false;
   documentation.enable = false;
   documentation.man.enable = false;
   documentation.doc.enable = false;
   documentation.info.enable = false;
 
-  # User cache directory
+  # CACHE
   environment.sessionVariables.XDG_CACHE_HOME = "/scratch/cache/lachlan";
 
-  # System services
+  # ENABLED SERVICES
   services.clamav = {
     daemon.enable = true;
     updater.enable = true;
     updater.interval = "daily";
   };
 
-  # Audio
+  # AUDIO
   services.pipewire = {
     enable = true;
     package = pkgsUnstable.pipewire;
@@ -183,6 +177,6 @@
     };
   };
 
-  # NixOS release compatibility
+  # NIX VERSION
   system.stateVersion = "26.05";
 }
