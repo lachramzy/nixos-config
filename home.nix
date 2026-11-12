@@ -155,7 +155,6 @@
     hl.bind(mainMod .. " + CONTROL + ALT + SHIFT + L", hl.dsp.exec_cmd("hyprlock"))
     hl.bind(mainMod .. " + CONTROL + O", hl.dsp.exec_cmd("osu!"))
     hl.bind(mainMod .. " + CONTROL + P", hl.dsp.exec_cmd("prismlauncher"))
-    hl.bind(mainMod .. " + CONTROL + L", hl.dsp.exec_cmd("lutris"))
     hl.bind(mainMod .. " + left", hl.dsp.focus({ direction = "left" }))
     hl.bind(mainMod .. " + right", hl.dsp.focus({ direction = "right" }))
     hl.bind(mainMod .. " + up", hl.dsp.focus({ direction = "up" }))

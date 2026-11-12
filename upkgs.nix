@@ -21,7 +21,6 @@
     libreoffice
     librewolf
     llama-cpp-rocm
-    lutris
     mov-cli
     mpv
     obsidian
