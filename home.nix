@@ -200,6 +200,7 @@
     };
   };
 
+  # THEMES
   dconf.enable = true;
   dconf.settings = {
     "org/gnome/desktop/interface" = {
@@ -210,7 +211,6 @@
       cursor-size = 32;
     };
   };
-
   gtk = {
     enable = true;
     theme = {
@@ -233,13 +233,11 @@
       gtk-application-prefer-dark-theme = 1;
     };
   };
-
   qt = {
     enable = true;
     style.name = "adwaita-dark";
     style.package = pkgs.adwaita-qt;
   };
-
   home.pointerCursor = {
     gtk.enable = true;
     x11.enable = true;
@@ -247,13 +245,13 @@
     package = pkgs.adwaita-icon-theme;
     size = 32;
   };
-
   home.sessionVariables = {
     GTK_THEME = "Adwaita-dark";
     QT_STYLE_OVERRIDE = "adwaita-dark";
     QT_QPA_PLATFORMTHEME = "qt6ct";
   };
 
+  # HOME PACKAGES
   home.packages = with pkgs; [
     gnome-themes-extra
     adwaita-qt
@@ -263,6 +261,7 @@
     papirus-icon-theme
   ];
 
+  # TERMINAL
   programs.ghostty = {
     enable = true;
     package = pkgsUnstable.ghostty;

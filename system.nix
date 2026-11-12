@@ -39,7 +39,7 @@
     "net.ipv4.tcp_wmem" = "4096 65536 16777216";
   };
 
-  # SYSTEMD
+  # SYSTEM
   services.resolved.enable = true;
   systemd.coredump.enable = false;
   time.timeZone = "Australia/Melbourne";
@@ -286,15 +286,15 @@
   documentation.doc.enable = false;
   documentation.info.enable = false;
 
-  # CACHE
-  environment.sessionVariables.XDG_CACHE_HOME = "/scratch/cache/lachlan";
-
   # ENABLED SERVICES
   services.clamav = {
     daemon.enable = true;
     updater.enable = true;
     updater.interval = "daily";
   };
+
+  # CACHE
+  environment.sessionVariables.XDG_CACHE_HOME = "/scratch/cache/lachlan";
 
   # AUDIO
   services.pipewire = {

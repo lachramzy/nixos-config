@@ -50,6 +50,7 @@
     memtest_vulkan
     nixpkgs-fmt
     nix-output-monitor
+    playerctl
     protontricks
     proton-vpn-cli
     psmisc
