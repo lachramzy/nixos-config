@@ -26,14 +26,14 @@
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
-    package = pkgsUnstable.mesa.override {
-      stdenv = pkgsUnstable.stdenvAdapters.impureUseNativeOptimizations pkgsUnstable.stdenv;
+    package = pkgs.mesa.override {
+      stdenv = pkgs.stdenvAdapters.impureUseNativeOptimizations pkgsUnstable.stdenv;
     };
-    package32 = pkgsUnstable.pkgsi686Linux.mesa.override {
-      stdenv = pkgsUnstable.pkgsi686Linux.stdenvAdapters.impureUseNativeOptimizations pkgsUnstable.pkgsi686Linux.stdenv;
+    package32 = pkgs.pkgsi686Linux.mesa.override {
+      stdenv = pkgs.pkgsi686Linux.stdenvAdapters.impureUseNativeOptimizations pkgsUnstable.pkgsi686Linux.stdenv;
     };
     extraPackages = [
-      pkgs.rocmPackages.clr.icd
+      pkgsUnstable.rocmPackages.clr.icd
     ];
   };
   environment.variables = {
