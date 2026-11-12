@@ -32,7 +32,6 @@
     cmatrix
     croc
     curl
-    davinci-resolve-studio
     ddcutil
     ethtool
     exodus
@@ -45,29 +44,21 @@
     gnome-keyring
     gnome-themes-extra
     gptfdisk
-#    kdePackages.filelight
     kdePackages.qtwayland
     keepassxc
-    libreoffice
     libsecret
     memtest_vulkan
     nixpkgs-fmt
     nix-output-monitor
-    obsidian
-#    openrgb
-#    protonup-qt
     protontricks
     proton-vpn-cli
     psmisc
     p7zip
-#    qbittorrent
     ripgrep
-    spotify
     stress-ng
     s-tui
     termdown
     tty-clock
-    umu-launcher
     unrar
     unzip
     vim

@@ -7,6 +7,7 @@
     ani-cli
     cava
     celluloid
+    davinci-resolve-studio
     discord
     easyeffects
     ffmpeg-full
@@ -17,10 +18,12 @@
     hyprshot
     kdePackages.filelight
     lact
+    libreoffice
     librewolf
     llama-cpp-rocm
     mov-cli
     mpv
+    obsidian
     obs-studio
     openrgb
     osu-lazer-bin
@@ -28,6 +31,7 @@
     protonup-qt
     pulsemixer
     qbittorrent
+    spotify
     swayimg
     thunar
   ];
