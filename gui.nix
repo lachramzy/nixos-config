@@ -1,9 +1,11 @@
-{ inputs, pkgs, ... }:
+{ inputs, pkgs, pkgsUnstable, ... }:
 
 {
   # COMPOSITOR
   programs.hyprland = {
     enable = true;
+    package = pkgsUnstable.hyprland;
+    portalPackage = pkgsUnstable.xdg-desktop-portal-hyprland;
   };
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";
