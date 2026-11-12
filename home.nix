@@ -269,28 +269,32 @@
     settings = {
       confirm-close-surface = false;
       background = "#000000";
-      foreground = "#c8d3f5";
-      cursor-color = "#c8d3f5";
-      selection-background = "#2d3f76";
-      selection-foreground = "#c8d3f5";
+      foreground = "#ffffff";
+      cursor-color = "#ffffff";
+      selection-background = "#444444";
+      selection-foreground = "#ffffff";
       palette = [
-        "0=#1b1d2b"
-        "1=#ff757f"
-        "2=#c3e88d"
-        "3=#ffc777"
-        "4=#82aaff"
-        "5=#c099ff"
-        "6=#86e1fc"
-        "7=#828bb8"
-        "8=#444a73"
-        "9=#ff8d94"
-        "10=#c7fb6d"
-        "11=#ffd8ab"
-        "12=#9ab8ff"
-        "13=#caabff"
-        "14=#b2ebff"
-        "15=#c8d3f5"
+        "0=#000000"
+        "1=#cd0000"
+        "2=#00cd00"
+        "3=#00cd00"
+        "4=#0000ee"
+        "5=#cd00cd"
+        "6=#00cdcd"
+        "7=#e5e5e5"
+        "8=#7f7f7f"
+        "9=#ff0000"
+        "10=#00ff00"
+        "11=#ffff00"
+        "12=#5c5cff"
+        "13=#ff00ff"
+        "14=#00ffff"
+        "15=#ffffff"
       ];
+      window-theme = "ghostty";
+      window-titlebar-background = "#000000";
+      window-titlebar-foreground = "#ffffff";
+      gtk-custom-css = "${config.xdg.configHome}/ghostty/gtk.css";
     };
   };
 
