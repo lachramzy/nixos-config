@@ -133,7 +133,7 @@
     local mainMod = "SUPER"
     hl.bind(mainMod .. " + RETURN", hl.dsp.exec_cmd("ghostty"))
     hl.bind(mainMod .. " + Q", hl.dsp.window.close())
-    hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("spotify"))
+    hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("spotify --enable-smooth-scrolling"))
     hl.bind(mainMod .. " + E", hl.dsp.exec_cmd("thunar"))
     hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
     hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))
@@ -146,7 +146,7 @@
     hl.bind(mainMod .. " + SHIFT + L", hl.dsp.exec_cmd("lact"))
     hl.bind(mainMod .. " + A", hl.dsp.exec_cmd("ghostty --class floating_mixer -e pulsemixer"))
     hl.bind(mainMod .. " + SHIFT + E", hl.dsp.exec_cmd("easyeffects"))
-    hl.bind(mainMod .. " + O", hl.dsp.exec_cmd("obsidian"))
+    hl.bind(mainMod .. " + O", hl.dsp.exec_cmd("obsidian --enable-smooth-scrolling"))
     hl.bind(mainMod .. " + P", hl.dsp.exec_cmd("keepassxc"))
     hl.bind(mainMod .. " + INSERT", hl.dsp.exec_cmd("hyprshot -m window"))
     hl.bind(mainMod .. " + CTRL + X", hl.dsp.exec_cmd("hyprctl kill"))
