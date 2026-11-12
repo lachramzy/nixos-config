@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, pkgsUnstable, ... }:
 
 {
   home.username = "lachlan";
@@ -206,6 +206,7 @@
 
   programs.hyprlock = {
     enable = true;
+    package = pkgsUnstable.hyprlock;
     settings = {
       general = {
         hide_cursor = true;

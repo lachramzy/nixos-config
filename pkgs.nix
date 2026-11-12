@@ -1,10 +1,13 @@
 { pkgs, ... }:
 
 {
-  # Package policy
+  # Stable package channel (nixos-26.05).
+  # To install a package from stable, add it to this file.
+  # Packages in upkgs.nix are selected independently from nixos-unstable.
+
   nixpkgs.config.allowUnfree = true;
 
-  # Fonts
+  # Fonts remain on stable.
   fonts = {
     packages = with pkgs; [
       noto-fonts
@@ -25,29 +28,20 @@
     };
   };
 
-  # System packages
+  # Stable system applications and utilities.
   environment.systemPackages = with pkgs; [
     adwaita-icon-theme
-    alsa-plugins
-    alsa-utils
-    ani-cli
     btop
-    cava
-    celluloid
     cmake
     cmatrix
     croc
     curl
     davinci-resolve-studio
     ddcutil
-    discord
-    easyeffects
     ethtool
     exodus
     fastfetch
-    ffmpeg-full
     furmark
-    gamescope
     gammastep
     geekbench
     gimp
@@ -56,33 +50,23 @@
     gnome-keyring
     gnome-themes-extra
     gptfdisk
-    hyprlock
-    hyprshot
     kdePackages.filelight
     kdePackages.qtwayland
     keepassxc
     kitty
-    lact
     libreoffice
-    librewolf
     libsecret
     memtest_vulkan
-    mpv
-    mov-cli
     nixpkgs-fmt
     nix-output-monitor
     obsidian
     obs-studio
     openrgb
-    osu-lazer-bin
-    llama-cpp-rocm
-    polychromatic
     prismlauncher
     protonup-qt
     protontricks
     proton-vpn-cli
     psmisc
-    pulsemixer
     p7zip
     qbittorrent
     ripgrep
@@ -107,14 +91,8 @@
     zip
   ];
 
-  # Packages installed specifically for this user
+  # Packages installed specifically for this user (stable).
   users.users.lachlan.packages = with pkgs; [
     tree
   ];
-
-  # Browser package selection
-  programs.firefox = {
-    enable = true;
-    package = pkgs.librewolf;
-  };
 }

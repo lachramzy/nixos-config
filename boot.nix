@@ -1,10 +1,10 @@
-{ pkgs, ... }:
+{ pkgsUnstable, ... }:
 
 {
   # Bootloader and kernel selection
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.kernelPackages = pkgs.linuxPackages_zen;
+  boot.kernelPackages = pkgsUnstable.linuxPackages_zen;
 
   # Encrypted data volumes unlocked during initrd
   boot.initrd.luks.devices."cryptdata" = {

@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, pkgsUnstable, ... }:
 
 {
   # Storage mounts for the encrypted data volumes configured in boot.nix
@@ -165,6 +165,7 @@
   # Audio
   services.pipewire = {
     enable = true;
+    package = pkgsUnstable.pipewire;
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
