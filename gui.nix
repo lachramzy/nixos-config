@@ -4,10 +4,6 @@
   # COMPOSITOR
   programs.hyprland = {
     enable = true;
-    # Use the existing local HDR-patched Hyprland flake rather than the
-    # stable nixpkgs package; keep its matching portal package in sync.
-    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
-    portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
   };
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";
