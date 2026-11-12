@@ -134,7 +134,7 @@
     local mainMod = "SUPER"
 
     -- Application launches
-    hl.bind(mainMod .. " + K", hl.dsp.exec_cmd("kitty"))
+    hl.bind(mainMod .. " + RETURN", hl.dsp.exec_cmd("kitty"))
     hl.bind(mainMod .. " + Q", hl.dsp.window.close())
     hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("spotify"))
     hl.bind(mainMod .. " + ALT + E", hl.dsp.exec_cmd("thunar"))
