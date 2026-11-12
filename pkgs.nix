@@ -49,7 +49,6 @@
     kdePackages.filelight
     kdePackages.qtwayland
     keepassxc
-    kitty
     libreoffice
     libsecret
     memtest_vulkan

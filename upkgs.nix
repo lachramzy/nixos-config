@@ -13,6 +13,7 @@
     gamescope
     hyprlock
     hyprshot
+    kitty
     lact
     librewolf
     llama-cpp-rocm
