@@ -106,6 +106,8 @@
             follow_mouse = 1,
             sensitivity = -0.8564,
             accel_profile = "flat",
+            emulate_discrete_scroll = 0,
+            scroll_factor = 1.0,
         },
 
   -- MISC
