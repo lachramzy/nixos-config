@@ -40,14 +40,12 @@
     furmark
     gammastep
     geekbench
-    ghostty
-    gimp
     git
     git-crypt
     gnome-keyring
     gnome-themes-extra
     gptfdisk
-    kdePackages.filelight
+#    kdePackages.filelight
     kdePackages.qtwayland
     keepassxc
     libreoffice
@@ -56,22 +54,18 @@
     nixpkgs-fmt
     nix-output-monitor
     obsidian
-    obs-studio
-    openrgb
-    prismlauncher
-    protonup-qt
+#    openrgb
+#    protonup-qt
     protontricks
     proton-vpn-cli
     psmisc
     p7zip
-    qbittorrent
+#    qbittorrent
     ripgrep
     spotify
     stress-ng
-    swayimg
     s-tui
     termdown
-    thunar
     tty-clock
     umu-launcher
     unrar
