@@ -21,6 +21,7 @@
     libreoffice
     librewolf
     llama-cpp-rocm
+    lutris
     mov-cli
     mpv
     obsidian
@@ -28,6 +29,7 @@
     openrgb
     osu-lazer-bin
     polychromatic
+    prismlauncher
     protonup-qt
     pulsemixer
     qbittorrent

@@ -152,6 +152,8 @@
     hl.bind(mainMod .. " + C", hl.dsp.exec_cmd("exodus"))
     hl.bind(mainMod .. " + CONTROL + ALT + SHIFT + L", hl.dsp.exec_cmd("hyprlock"))
     hl.bind(mainMod .. " + CONTROL + O", hl.dsp.exec_cmd("osu!"))
+    hl.bind(mainMod .. " + CONTROL + P", hl.dsp.exec_cmd("prismlauncher"))
+    hl.bind(mainMod .. " + CONTROL + L", hl.dsp.exec_cmd("lutris"))
     hl.bind(mainMod .. " + left", hl.dsp.focus({ direction = "left" }))
     hl.bind(mainMod .. " + right", hl.dsp.focus({ direction = "right" }))
     hl.bind(mainMod .. " + up", hl.dsp.focus({ direction = "up" }))
@@ -172,10 +174,9 @@
     hl.bind("XF86AudioMicMute", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"), { locked = true, repeating = true })
     hl.bind(mainMod .. " + SHIFT + Page_Up", hl.dsp.exec_cmd("ddcutil -b 10 setvcp 10 + 20"), { locked = true, repeating = true })
     hl.bind(mainMod .. " + SHIFT + Page_Down", hl.dsp.exec_cmd("ddcutil -b 10 setvcp 10 - 20"), { locked = true, repeating = true })
-    hl.bind("XF86AudioNext", hl.dsp.exec_cmd("playerctl next"), { locked = true })
-    hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
-    hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
-    hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), { locked = true })
+    hl.bind(mainMod .. " + F12", hl.dsp.exec_cmd("playerctl next"), { locked = true })
+    hl.bind(mainMod .. " + F11", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
+    hl.bind(mainMod .. " + F10", hl.dsp.exec_cmd("playerctl previous"), { locked = true })
 
     -- EXEC-ONCE
     hl.on("hyprland.start", function()
