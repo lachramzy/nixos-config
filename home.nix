@@ -134,11 +134,11 @@
     local mainMod = "SUPER"
 
     -- Application launches
-    hl.bind(mainMod .. " + RETURN", hl.dsp.exec_cmd("kitty"))
+    hl.bind(mainMod .. " + RETURN", hl.dsp.exec_cmd("ghostty"))
     hl.bind(mainMod .. " + Q", hl.dsp.window.close())
     hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("spotify"))
     hl.bind(mainMod .. " + ALT + E", hl.dsp.exec_cmd("thunar"))
-    hl.bind(mainMod .. " + E", hl.dsp.exec_cmd("kitty --class floating_mixer -e yazi"))
+    hl.bind(mainMod .. " + E", hl.dsp.exec_cmd("ghostty --class floating_mixer -e yazi"))
     hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
     hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))
     hl.bind(mainMod .. " + W", hl.dsp.exec_cmd("librewolf"))
@@ -148,7 +148,7 @@
     hl.bind(mainMod .. " + G", hl.dsp.exec_cmd("gimp"))
     hl.bind(mainMod .. " + SHIFT + D", hl.dsp.exec_cmd("QT_QPA_PLATFORM=xcb davinci-resolve-studio"))
     hl.bind(mainMod .. " + SHIFT + L", hl.dsp.exec_cmd("lact"))
-    hl.bind(mainMod .. " + A", hl.dsp.exec_cmd("kitty --class floating_mixer -e pulsemixer"))
+    hl.bind(mainMod .. " + A", hl.dsp.exec_cmd("ghostty --class floating_mixer -e pulsemixer"))
     hl.bind(mainMod .. " + SHIFT + E", hl.dsp.exec_cmd("easyeffects"))
     hl.bind(mainMod .. " + O", hl.dsp.exec_cmd("obsidian"))
     hl.bind(mainMod .. " + P", hl.dsp.exec_cmd("keepassxc"))

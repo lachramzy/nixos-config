@@ -40,6 +40,7 @@
     furmark
     gammastep
     geekbench
+    ghostty
     gimp
     git
     git-crypt
