@@ -75,6 +75,8 @@
     enable = true;
     interactiveShellInit = ''
       set -g fish_greeting
+
+  # NRS
       function nrs
         set -l old_pwd $PWD
           cd /etc/nixos
@@ -103,13 +105,136 @@
             return 1
           end
         end
+      
+  # NGC
       function ngc
-          echo "=== Deleting old generations and garbage collecting ==="
-          sudo nix-collect-garbage -d
-          echo "=== Optimizing Nix store ==="
-          sudo nix-store --optimize
-          echo "✅ Nix cleanup complete!"
+        set -l profile /nix/var/nix/profiles/system
+        echo "=== NixOS system generations ==="
+        set -l generation_lines (sudo nix-env --profile "$profile" --list-generations)
+        if test (count $generation_lines) -eq 0
+          echo "❌ Could not retrieve system generations."
+          return 1
         end
+        printf '%s\n' $generation_lines
+        set -l all_gens
+        set -l current_gen ""
+        for line in $generation_lines
+          set -l gen (string match --regex --groups-only '^[[:space:]]*([0-9]+)' -- "$line")
+          if test -n "$gen"
+            set -a all_gens "$gen"
+            if string match --quiet '* (current)' -- "$line"
+              set current_gen "$gen"
+            end
+          end
+        end
+        if test -z "$current_gen"
+          echo "❌ Could not identify the current generation. Aborting."
+          return 1
+        end
+        set -l booted_system (readlink -f /run/current-system 2>/dev/null)
+        set -l booted_gens
+        if test -n "$booted_system"
+          for gen in $all_gens
+            set -l generation_link "$profile-$gen-link"
+            if test -e "$generation_link"
+              set -l generation_path (readlink -f "$generation_link")
+              if test "$generation_path" = "$booted_system"
+                set -a booted_gens "$gen"
+              end
+            end
+          end
+        end
+        set -l keep_gens "$current_gen"
+        for gen in $booted_gens
+          if not contains -- "$gen" $keep_gens
+            set -a keep_gens "$gen"
+          end
+        end
+        echo ""
+        echo "Current generation $current_gen will always be preserved."
+        if test (count $booted_gens) -gt 0
+          echo "Currently booted generation(s) also protected: $booted_gens"
+        end
+        echo ""
+        echo "Enter additional generation numbers to KEEP."
+        echo "Separate multiple numbers with commas (e.g. 12,15,18)."
+        echo "Press Enter without a selection to cancel."
+        read --prompt-str "Generations to preserve: " keep_input
+        set keep_input (string trim -- "$keep_input")
+        if test -z "$keep_input"
+          echo "Cancelled. Nothing was changed."
+          return 0
+        end
+        for item in (string split ',' -- "$keep_input")
+          set item (string trim -- "$item")
+          if not string match --quiet --regex '^[0-9]+$' -- "$item"
+            echo "❌ Invalid generation number: $item"
+            echo "Nothing was changed."
+            return 1
+          end
+          if not contains -- "$item" $all_gens
+            echo "❌ Generation $item does not exist."
+            echo "Nothing was changed."
+            return 1
+          end
+          if not contains -- "$item" $keep_gens
+            set -a keep_gens "$item"
+          end
+        end
+        set -l delete_gens
+        for gen in $all_gens
+          if not contains -- "$gen" $keep_gens
+            set -a delete_gens "$gen"
+          end
+        end
+        echo ""
+        echo "========== CLEANUP PLAN =========="
+        echo "Generations to KEEP: "
+        string join ", " $keep_gens
+        if test (count $delete_gens) -gt 0
+          echo ""
+          echo "Generations to DELETE:"
+          string join ", " $delete_gens
+        else
+          echo ""
+          echo "No system generations need deleting."
+        end
+        echo ""
+        echo "This will also garbage collect unreachable Nix store paths."
+        echo "Other valid GC roots and preserved generations will remain."
+        echo ""
+        read --prompt-str "Type DELETE to confirm: " confirm
+        if test "$confirm" != "DELETE"
+          echo "Cancelled. Nothing was changed."
+          return 0
+        end
+        if test (count $delete_gens) -gt 0
+          echo ""
+          echo "=== Removing unwanted system generations ==="
+          sudo nix-env --profile "$profile" --delete-generations $delete_gens
+          if test $status -ne 0
+            echo "❌ Generation deletion failed. Garbage collection cancelled."
+            return 1
+          end
+        end
+        echo ""
+        echo "=== Garbage collecting unused Nix store paths ==="
+        sudo nix-store --gc
+        if test $status -ne 0
+          echo "❌ Garbage collection failed."
+          return 1
+        end
+        echo ""
+        echo "=== Optimising Nix store ==="
+        sudo nix-store --optimise
+        if test $status -ne 0
+          echo "⚠️ Store optimisation failed, but garbage collection completed."
+          return 1
+        end
+        echo ""
+        echo "✅ Selective Nix cleanup complete!"
+        echo "Preserved generations: "(string join ", " $keep_gens)
+      end
     '';
   };
 
