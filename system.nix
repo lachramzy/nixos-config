@@ -275,7 +275,7 @@
   # USER
   users.users.lachlan = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "video" "networkmanager" "i2c-dev" "plugdev" ];
+    extraGroups = [ "wheel" "video" "render" "networkmanager" "i2c-dev" "plugdev" ];
     shell = pkgs.fish;
   };
 
