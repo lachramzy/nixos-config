@@ -286,13 +286,6 @@
   documentation.doc.enable = false;
   documentation.info.enable = false;
 
-  # ENABLED SERVICES
-  services.clamav = {
-    daemon.enable = true;
-    updater.enable = true;
-    updater.interval = "daily";
-  };
-
   # CACHE
   environment.sessionVariables.XDG_CACHE_HOME = "/scratch/cache/lachlan";
 
