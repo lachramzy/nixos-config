@@ -22,17 +22,17 @@
         scale = 2,
         bitdepth = 10,
         vrr = 2,
-        cm = "hdr",
+        cm = "dp3",
         sdr_eotf = "srgb",
         supports_wide_color = 1,
         supports_hdr = 1,
         sdrbrightness = 1.0,
         sdrsaturation = 1.0,
         sdr_min_luminance = 0.0,
-        sdr_max_luminance = 590,
+        sdr_max_luminance = 595,
         min_luminance = 0.0,
-        max_luminance = -1,
-        max_avg_luminance = -1,
+        max_luminance = 595,
+        max_avg_luminance = 595,
     })
 
     -- RENDER
@@ -155,6 +155,7 @@
     hl.bind(mainMod .. " + CONTROL + ALT + SHIFT + L", hl.dsp.exec_cmd("hyprlock"))
     hl.bind(mainMod .. " + CONTROL + O", hl.dsp.exec_cmd("osu!"))
     hl.bind(mainMod .. " + CONTROL + P", hl.dsp.exec_cmd("prismlauncher"))
+    hl.bind(mainMod .. " + CONTROL + L", hl.dsp.exec_cmd("lutris"))
     hl.bind(mainMod .. " + left", hl.dsp.focus({ direction = "left" }))
     hl.bind(mainMod .. " + right", hl.dsp.focus({ direction = "right" }))
     hl.bind(mainMod .. " + up", hl.dsp.focus({ direction = "up" }))
