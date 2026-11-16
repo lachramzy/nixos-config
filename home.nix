@@ -298,6 +298,10 @@
       window-titlebar-background = "#000000";
       window-titlebar-foreground = "#ffffff";
       gtk-custom-css = "${config.xdg.configHome}/ghostty/gtk.css";
+      working-directory = "home";
+      window-inherit-working-directory = false;
+      tab-inherit-working-directory = false;
+      split-inherit-working-directory = false;
     };
   };
 
