@@ -22,7 +22,6 @@
     librewolf
     llama-cpp-rocm
     lutris
-    mov-cli
     mpv
     obsidian
     obs-studio

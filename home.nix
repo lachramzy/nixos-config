@@ -300,6 +300,19 @@
     };
   };
 
+  # MPV
+  programs.mpv = {
+    enable = true;
+    config = {
+      vo = "gpu-next";
+      target-colorspace-hint = "yes";
+      target-colorspace-hint-mode = "target";
+      target-prim = "bt.709";
+      target-gamut = "bt.709";
+      target-trc = "srgb";
+    };
+  };
+
   # HOME VERSION
   home.stateVersion = "26.05";
 }
