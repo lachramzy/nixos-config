@@ -22,7 +22,7 @@
         scale = 2,
         bitdepth = 10,
         vrr = 2,
-        cm = "dci-p3",
+        cm = "dp3",
         sdr_eotf = "srgb",
         supports_wide_color = 1,
         supports_hdr = 1,
