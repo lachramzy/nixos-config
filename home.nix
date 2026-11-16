@@ -252,6 +252,7 @@
     GTK_THEME = "Adwaita-dark";
     QT_STYLE_OVERRIDE = "adwaita-dark";
     QT_QPA_PLATFORMTHEME = "qt6ct";
+    ANI_CLI_QUALITY = "best";
   };
 
   # HOME PACKAGES
