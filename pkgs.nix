@@ -84,8 +84,8 @@
     extraCompatPackages = with pkgs; [
       proton-ge-bin
     ];
-    remotePlay.openFirewall = true;
-    localNetworkGameTransfers.openFirewall = true;
+    remotePlay.openFirewall = false;
+    localNetworkGameTransfers.openFirewall = false;
   };
   programs.gamemode.enable = true;
   programs.gamescope.enable = true;

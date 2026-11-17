@@ -28,7 +28,7 @@
     enable = true;
   };
   networking.networkmanager.enable = true;
-  networking.firewall.checkReversePath = false;
+  networking.firewall.checkReversePath = true;
   networking.wireless.enable = lib.mkForce false;
   boot.kernel.sysctl = {
     "net.core.default_qdisc" = "fq";
@@ -37,6 +37,22 @@
     "net.core.wmem_max" = 16777216;
     "net.ipv4.tcp_rmem" = "4096 87380 16777216";
     "net.ipv4.tcp_wmem" = "4096 65536 16777216";
+    "kernel.dmesg_restrict" = 1;
+    "kernel.kptr_restrict" = 2;
+    "kernel.unprivileged_bpf_disabled" = 1;
+    "kernel.yama.ptrace_scope" = 1;
+    "fs.protected_hardlinks" = 1;
+    "fs.protected_symlinks" = 1;
+    "fs.suid_dumpable" = 0;
+    "net.ipv4.icmp_echo_ignore_broadcasts" = 1;
+    "net.ipv4.conf.all.accept_redirects" = 0;
+    "net.ipv4.conf.default.accept_redirects" = 0;
+    "net.ipv4.conf.all.secure_redirects" = 0;
+    "net.ipv4.conf.default.secure_redirects" = 0;
+    "net.ipv4.conf.all.send_redirects" = 0;
+    "net.ipv4.conf.default.send_redirects" = 0;
+    "net.ipv4.conf.all.accept_source_route" = 0;
+    "net.ipv4.conf.default.accept_source_route" = 0;
   };
 
   # SYSTEM
@@ -50,6 +66,7 @@
   systemd.settings.Manager = {
     DefaultLimitCORE = "0";
   };
+  services.fwupd.enable = true;
 
   # FS
   services.btrfs.autoScrub = {
@@ -67,6 +84,7 @@
     '';
     sudo.execWheelOnly = true;
     forcePageTableIsolation = true;
+    lockKernelModules = true;
   };
   i18n.defaultLocale = "en_AU.UTF-8";
 

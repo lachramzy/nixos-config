@@ -3,11 +3,10 @@
 {
   # HARDWARE ACCESS
   hardware.i2c.enable = true;
-  boot.kernelModules = [ "i2c-dev" "uinput" ];
+  boot.kernelModules = [ "amdgpu" "i2c-dev" "uinput" ];
   hardware.openrazer = {
     enable = true;
     users = [ "lachlan" ];
-    # The kernel module follows boot.kernelPackages (unstable linux-zen).
     packages.daemon = pkgsUnstable.python3Packages.openrazer-daemon;
   };
   hardware.opentabletdriver = {
@@ -18,7 +17,7 @@
 
   # DEVICE PERMISSIONS
   services.udev.extraRules = ''
-    KERNEL=="hidraw*", SUBSYSTEM=="hidraw", MODE="0666", TAG+="uaccess"
+    KERNEL=="hidraw*", SUBSYSTEM=="hidraw", MODE="0660", TAG+="uaccess"
   '';
   hardware.bluetooth.enable = false;
 

@@ -26,6 +26,8 @@
   ];
   boot.kernelParams = [
     "amd_pstate=active"
+    "slab_nomerge"
+    "page_alloc.shuffle=1"
   ];
 
   # CACHING
