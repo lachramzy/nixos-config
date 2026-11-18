@@ -28,7 +28,7 @@
     enable = true;
   };
   networking.networkmanager.enable = true;
-  networking.firewall.checkReversePath = true;
+  networking.firewall.checkReversePath = "loose";
   networking.wireless.enable = lib.mkForce false;
   boot.kernel.sysctl = {
     "net.core.default_qdisc" = "fq";

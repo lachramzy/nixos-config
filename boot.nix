@@ -32,5 +32,5 @@
 
   # CACHING
   boot.tmp.useTmpfs = true;
-  boot.tmp.tmpfsSize = "32G";
+  boot.tmp.tmpfsSize = "8G";
 }
