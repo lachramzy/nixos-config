@@ -29,7 +29,6 @@
     adwaita-icon-theme
     btop
     cmake
-    cmatrix
     croc
     curl
     ddcutil
@@ -45,12 +44,11 @@
     gnome-themes-extra
     gptfdisk
     kdePackages.qtwayland
-    keepassxc
     libsecret
     memtest_vulkan
     nixpkgs-fmt
     nix-output-monitor
-    playerctl
+    protonup-qt
     protontricks
     proton-vpn-cli
     psmisc
@@ -58,8 +56,7 @@
     ripgrep
     stress-ng
     s-tui
-    termdown
-    tty-clock
+    umu-launcher
     unrar
     unzip
     vim
@@ -68,7 +65,6 @@
     wineWow64Packages.stable
     wireguard-tools
     wl-clipboard
-    yazi
     yt-dlp
     zip
   ];

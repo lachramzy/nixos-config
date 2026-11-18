@@ -4,6 +4,9 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs-locked.url =
+      "github:NixOS/nixpkgs/f4a03c008967841f2a0b3cb7c436fc6fc31671f6";
+
     home-manager = {
       url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -17,17 +20,22 @@
         inherit system;
         config.allowUnfree = true;
       };
+      pkgsLocked = import inputs."nixpkgs-locked" {
+        inherit system;
+        config.allowUnfree = true;
+      };
     in {
       nixosConfigurations.nixos-btw = nixpkgs.lib.nixosSystem {
         inherit system;
         specialArgs = {
-          inherit inputs pkgsUnstable;
+          inherit inputs pkgsUnstable pkgsLocked;
         };
         modules = [
           ./boot.nix
           ./system.nix
           ./pkgs.nix
           ./upkgs.nix
+          ./lpkgs.nix
           ./drivers.nix
           ./hardware-configuration.nix
           home-manager.nixosModules.home-manager
@@ -35,7 +43,7 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.extraSpecialArgs = {
-              inherit pkgsUnstable;
+              inherit pkgsUnstable pkgsLocked;
             };
           }
           ./gui.nix

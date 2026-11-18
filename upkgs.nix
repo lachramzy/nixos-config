@@ -25,7 +25,6 @@
     mpv
     obsidian
     obs-studio
-    openrgb
     osu-lazer-bin
     polychromatic
     prismlauncher
