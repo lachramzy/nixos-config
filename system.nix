@@ -84,8 +84,10 @@
     '';
     sudo.execWheelOnly = true;
     forcePageTableIsolation = true;
-    lockKernelModules = true;
   };
+  boot.kernelModules = [
+    "af_packet"
+  ];
   i18n.defaultLocale = "en_AU.UTF-8";
 
   # SHELL
