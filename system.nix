@@ -102,7 +102,7 @@
           read --prompt-str "Update flake inputs? (y/N) " confirm
           if test "$confirm" = y; or test "$confirm" = Y
             echo "=== Updating flake inputs ==="
-            nix flake update
+            sudo nix flake update
           end
           echo "=== Running nixos-rebuild ==="
           if sudo nixos-rebuild switch --flake .#nixos-btw --cores 16 --max-jobs 2 $argv
