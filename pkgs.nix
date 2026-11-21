@@ -56,6 +56,8 @@
     ripgrep
     stress-ng
     s-tui
+    termdown
+    tty-clock
     umu-launcher
     unrar
     unzip
