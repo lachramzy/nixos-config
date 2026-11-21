@@ -198,6 +198,7 @@
         {
         monitor = "";
         color = "rgb(0, 0, 0)";
+        opacity = "0";
         }
       ];
     };
