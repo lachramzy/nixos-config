@@ -116,6 +116,8 @@
             force_default_wallpaper = 0,
             background_color = "rgb(000000)",
             disable_splash_rendering = true,
+            session_lock_xray = true,
+            session_lock_blur = false,
         },
         xwayland = {
             force_zero_scaling = true,
@@ -193,14 +195,20 @@
       general = {
         hide_cursor = true;
         ignore_empty_input = true;
+        compositor_fade = false;
+        disable_screencopy = true;
       };
       background = [
         {
         monitor = "";
-        color = "rgb(0, 0, 0)";
-        opacity = "1";
+        path = "";
+        color = "rgb(0, 0, 0, 0.0)";
+        blur_passes = "0";
         }
       ];
+      animations = {
+        enabled = false;
+      };
     };
   };
 
