@@ -47,6 +47,7 @@
             };
           }
           ./gui.nix
+          ./davinci.nix
         ];
       };
     };

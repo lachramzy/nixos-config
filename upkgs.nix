@@ -7,7 +7,6 @@
     ani-cli
     cava
     celluloid
-    davinci-resolve-studio
     discord
     easyeffects
     ffmpeg-full
