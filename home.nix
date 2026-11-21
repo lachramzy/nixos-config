@@ -196,14 +196,6 @@
         hide_cursor = true;
         ignore_empty_input = true;
       };
-      background = [
-        {
-        monitor = "";
-        path = "";
-        color = "rgb(0,0,0,0)";
-        blur_passes = "0";
-        }
-      ];
       animations = {
         enabled = false;
       };
