@@ -200,7 +200,7 @@
         {
         monitor = "";
         path = "";
-        color = "rgb(0, 0, 0, 0.0)";
+        color = "rgb(0,0,0,0)";
         blur_passes = "0";
         }
       ];
