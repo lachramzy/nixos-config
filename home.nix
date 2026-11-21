@@ -195,13 +195,12 @@
       general = {
         hide_cursor = true;
         ignore_empty_input = true;
-        disable_screencopy = true;
       };
       background = [
         {
         monitor = "";
         path = "";
-        color = "rgb(000000)";
+        color = "rgb(0, 0, 0, 0.0)";
         blur_passes = "0";
         }
       ];
