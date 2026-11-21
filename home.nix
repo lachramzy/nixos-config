@@ -154,7 +154,7 @@
     hl.bind(mainMod .. " + CTRL + X", hl.dsp.exec_cmd("hyprctl kill"))
     hl.bind(mainMod .. " + SHIFT + F", hl.dsp.exec_cmd("filelight"))
     hl.bind(mainMod .. " + C", hl.dsp.exec_cmd("exodus"))
-    hl.bind(mainMod .. " + CONTROL + ALT + SHIFT + L", hl.dsp.exec_cmd("ghostty --fullscreen=true -e unimatrix -ans 96 & sleep 1 && hyprlock --no-fade-in"))
+    hl.bind(mainMod .. " + CONTROL + ALT + SHIFT + L", hl.dsp.exec_cmd("ghostty --fullscreen=true -e unimatrix -ans 96 & sleep 0.1 && hyprlock --no-fade-in"))
     hl.bind(mainMod .. " + CONTROL + O", hl.dsp.exec_cmd("osu!"))
     hl.bind(mainMod .. " + CONTROL + P", hl.dsp.exec_cmd("prismlauncher"))
     hl.bind(mainMod .. " + CONTROL + L", hl.dsp.exec_cmd("lutris"))
