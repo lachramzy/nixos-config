@@ -7,11 +7,11 @@
   hardware.openrazer = {
     enable = true;
     users = [ "lachlan" ];
-    packages.daemon = pkgsUnstable.python3Packages.openrazer-daemon;
+    packages.daemon = pkgs.python3Packages.openrazer-daemon;
   };
   hardware.opentabletdriver = {
     enable = true;
-    package = pkgsUnstable.opentabletdriver;
+    package = pkgs.opentabletdriver;
   };
   hardware.uinput.enable = true;
 
@@ -49,7 +49,7 @@
   };
   services.lact = {
     enable = true;
-    package = pkgsUnstable.lact;
+    package = pkgs.lact;
   };
   hardware.amdgpu.overdrive.enable = true;
 }
