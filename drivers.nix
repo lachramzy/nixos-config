@@ -32,7 +32,7 @@
       stdenv = pkgs.pkgsi686Linux.stdenvAdapters.impureUseNativeOptimizations pkgsUnstable.pkgsi686Linux.stdenv;
     };
     extraPackages = [
-      pkgs.rocmPackages.clr.icd
+      pkgsUnstable.rocmPackages.clr.icd
     ];
   };
   environment.variables = {
