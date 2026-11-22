@@ -47,6 +47,7 @@
     gnome-themes-extra
     gptfdisk
     kdePackages.qtwayland
+    lact
     libsecret
     memtest_vulkan
     nixpkgs-fmt

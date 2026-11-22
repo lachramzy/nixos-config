@@ -13,7 +13,6 @@
     hyprlock
     hyprshot
     kdePackages.filelight
-    lact
     libreoffice
     librewolf
     llama-cpp-rocm
