@@ -2,14 +2,11 @@
 
 {
   environment.systemPackages = with pkgsUnstable; [
-    alsa-plugins
-    alsa-utils
     ani-cli
     cava
     celluloid
     discord
     easyeffects
-    ffmpeg-full
     gamescope
     ghostty
     gimp
@@ -25,7 +22,6 @@
     obsidian
     obs-studio
     osu-lazer-bin
-    polychromatic
     prismlauncher
     protonup-qt
     pulsemixer

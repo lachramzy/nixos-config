@@ -27,6 +27,8 @@
   # STABLE PACKAGES
   environment.systemPackages = with pkgs; [
     adwaita-icon-theme
+    alsa-plugins
+    alsa-utils
     btop
     cmake
     croc
@@ -35,6 +37,7 @@
     ethtool
     exodus
     fastfetch
+    ffmpeg-full
     furmark
     gammastep
     geekbench
@@ -48,6 +51,7 @@
     memtest_vulkan
     nixpkgs-fmt
     nix-output-monitor
+    polychromatic
     protonup-qt
     protontricks
     proton-vpn-cli
