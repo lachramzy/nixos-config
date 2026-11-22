@@ -4,10 +4,10 @@
     lib = pkgsUnstable.lib;
 
     # FFMPEG ENCODER PLUGIN
-    ffmpegPluginVersion = "1.4.0";
+    ffmpegPluginVersion = "1.5.0";
     ffmpegPluginArchive = pkgsUnstable.fetchzip {
       url = "https://github.com/EdvinNilsson/ffmpeg_encoder_plugin/releases/download/v${ffmpegPluginVersion}/ffmpeg_encoder_plugin.dvcp.bundle.zip";
-      hash = "sha256-LEnMA6A0yMOEg3wS+1WIu4yX2CdW+gonmun0Y8eSPxE=";
+      hash = "sha256-/cYzLFBK8YQMkvf3ZCmkt7wb5SJVn6UkeFd0nRwncGo=";
       stripRoot = false;
     };
     ioPluginBundles = [
