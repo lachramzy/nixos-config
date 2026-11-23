@@ -17,9 +17,9 @@
     -- MONITOR
     hl.monitor({
         output = "DP-1",
-        mode = "1920x1080@330",
+        mode = "3840x2160@165",
         position = "0x0",
-        scale = 1,
+        scale = 2,
         bitdepth = 10,
         vrr = 2,
         cm = "srgb",
