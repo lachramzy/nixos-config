@@ -28,6 +28,7 @@
     spotify
     swayimg
     thunar
+    umu-launcher
   ];
 
   programs.firefox = {
