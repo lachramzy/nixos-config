@@ -25,11 +25,11 @@
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
-    package = pkgs.mesa.override {
-      stdenv = pkgs.stdenvAdapters.impureUseNativeOptimizations pkgsUnstable.stdenv;
+    package = pkgsUnstable.mesa.override {
+      stdenv = pkgsUnstable.stdenvAdapters.impureUseNativeOptimizations pkgsUnstable.stdenv;
     };
-    package32 = pkgs.pkgsi686Linux.mesa.override {
-      stdenv = pkgs.pkgsi686Linux.stdenvAdapters.impureUseNativeOptimizations pkgsUnstable.pkgsi686Linux.stdenv;
+    package32 = pkgsUnstable.pkgsi686Linux.mesa.override {
+      stdenv = pkgsUnstable.pkgsi686Linux.stdenvAdapters.impureUseNativeOptimizations pkgsUnstable.pkgsi686Linux.stdenv;
     };
     extraPackages = [
       pkgs.rocmPackages.clr.icd
@@ -40,7 +40,7 @@
   };
   environment.sessionVariables = {
     AMD_VULKAN_ICD = "RADV";
-    RADV_PERFSET = "aco";
+    RADV_PERFTEST = "rtcps";
     MESA_DISK_CACHE_DIR = "/scratch/cache/lachlan/mesa";
     AMD_SHADER_DISK_CACHE_PATH = "/scratch/cache/lachlan/amd";
     ENABLE_HDR_WSI = "1";
