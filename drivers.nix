@@ -26,17 +26,17 @@
     enable = true;
     enable32Bit = true;
     package = pkgs.mesa.override {
-      stdenv = pkgs.stdenvAdapters.impureUseNativeOptimizations pkgsUnstable.stdenv;
+      stdenv = pkgs.stdenvAdapters.impureUseNativeOptimizations pkgs.stdenv;
     };
     package32 = pkgs.pkgsi686Linux.mesa.override {
-      stdenv = pkgs.pkgsi686Linux.stdenvAdapters.impureUseNativeOptimizations pkgsUnstable.pkgsi686Linux.stdenv;
+      stdenv = pkgs.pkgsi686Linux.stdenvAdapters.impureUseNativeOptimizations pkgs.pkgsi686Linux.stdenv;
     };
     extraPackages = [
       pkgs.rocmPackages.clr.icd
     ];
   };
   environment.variables = {
-    RUSTICL_ENABLE = "radeonsi";
+    OCL_ICD_VENDORS = "${pkgs.rocmPackages.clr.icd}/etc/OpenCL/vendors";
   };
   environment.sessionVariables = {
     AMD_VULKAN_ICD = "RADV";
